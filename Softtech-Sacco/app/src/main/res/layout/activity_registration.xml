@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="30dp"
+    android:background="#F33ABAFF"
+    tools:context=".Registration">
+
+    <ImageView
+        android:id="@+id/logoo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/logo_foreground"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/buttons"
+        android:hint="@string/full_name"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/logoo"
+        android:layout_marginBottom="30dp"
+        android:paddingHorizontal="30dp"
+        android:inputType="textPersonName"
+        android:autofillHints="@string/full_name" />
+
+    <EditText
+        android:id="@+id/ID"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/buttons"
+        android:hint="@string/id_number"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:paddingHorizontal="30dp"
+        android:inputType="number"
+        android:autofillHints="@string/id_number"/>
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/buttons"
+        android:hint="@string/phone_number"
+        android:autofillHints="@string/phone_number"
+        android:layout_below="@+id/ID"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:inputType="phone"/>
+
+    <EditText
+        android:id="@+id/kra"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/buttons"
+        android:hint="@string/kra_number"
+        android:autofillHints="@string/kra_number"
+        android:layout_below="@+id/phone"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/sacconame"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/buttons"
+        android:hint="@string/sacco_name"
+        android:autofillHints="@string/sacco_name"
+        android:layout_below="@+id/kra"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sacconame"
+        android:layout_marginTop="40dp"
+        android:layout_alignEnd="@+id/kra"
+        android:background="@drawable/buttons"
+        android:text="@string/register"
+        android:textStyle="bold"/>
+
+</RelativeLayout>
