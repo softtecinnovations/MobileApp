@@ -17,8 +17,8 @@ public class EnterPin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_pin);
 
-        View editText = (View) findViewById(R.id.editText);
-        Keyboard keyboard = (Keyboard) findViewById(R.id.keyboard);
+        View editText = findViewById(R.id.editText);
+        Keyboard keyboard = findViewById(R.id.keyboard);
         InputConnection ic = editText.onCreateInputConnection(new EditorInfo());
         keyboard.setInputConnection(ic);
         keyboard.setVisibility(View.VISIBLE);

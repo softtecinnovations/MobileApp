@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="20dp"
     tools:context=".EnterPin">
 
     <TextView
@@ -13,10 +12,11 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="Enter Your Sacco Pin"
+        android:fontFamily="@font/roboto"
         android:textStyle="bold"
-        android:textColor="@color/blue"
+        android:textColor="@color/buttonblue"
         android:textSize="20sp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="180dp" />
 
     <include layout="@layout/pin_edittext"
         android:id="@+id/editText"
@@ -29,7 +29,9 @@
     <ke.co.softttech.lydia.softtech_sacco.Keyboard
         android:id="@+id/keyboard"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:visibility="invisible"
-        android:layout_alignParentBottom="true"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:visibility="visible" />
 </RelativeLayout>

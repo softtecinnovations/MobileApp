@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="30dp"
-    android:background="#F33ABAFF"
+    android:background="@color/white"
     tools:context=".Registration">
 
     <ImageView
@@ -18,59 +18,63 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/buttons"
-        android:hint="@string/full_name"
-        android:layout_marginTop="30dp"
         android:layout_below="@+id/logoo"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
-        android:paddingHorizontal="30dp"
+        android:autofillHints="@string/full_name"
+        android:background="@drawable/edittext"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/full_name"
         android:inputType="textPersonName"
-        android:autofillHints="@string/full_name" />
+        android:paddingHorizontal="30dp" />
 
     <EditText
         android:id="@+id/ID"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/buttons"
-        android:hint="@string/id_number"
         android:layout_below="@+id/name"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:paddingHorizontal="30dp"
+        android:autofillHints="@string/id_number"
+        android:background="@drawable/edittext"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/id_number"
         android:inputType="number"
-        android:autofillHints="@string/id_number"/>
+        android:paddingHorizontal="30dp" />
 
     <EditText
         android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/buttons"
-        android:hint="@string/phone_number"
-        android:autofillHints="@string/phone_number"
         android:layout_below="@+id/ID"
         android:layout_marginTop="20dp"
-        android:paddingHorizontal="30dp"
         android:layout_marginBottom="30dp"
-        android:inputType="phone"/>
+        android:autofillHints="@string/phone_number"
+        android:background="@drawable/edittext"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:paddingHorizontal="30dp" />
 
     <EditText
         android:id="@+id/kra"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/buttons"
-        android:hint="@string/kra_number"
-        android:autofillHints="@string/kra_number"
         android:layout_below="@+id/phone"
         android:layout_marginTop="20dp"
-        android:paddingHorizontal="30dp"
         android:layout_marginBottom="30dp"
-        android:inputType="text" />
+        android:autofillHints="@string/kra_number"
+        android:background="@drawable/edittext"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/kra_number"
+        android:inputType="text"
+        android:paddingHorizontal="30dp" />
 
     <EditText
         android:id="@+id/sacconame"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/buttons"
+        android:background="@drawable/edittext"
         android:hint="@string/sacco_name"
         android:autofillHints="@string/sacco_name"
         android:layout_below="@+id/kra"
