@@ -11,8 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SofttechSacco">
 
-        <activity android:name=".Profile"/>
-        <activity android:name=".Services" />
+        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".ServicesActivity" />
         <activity android:name=".Splash"/>
 
         <activity android:name=".EnterPin"/>

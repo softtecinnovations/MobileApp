@@ -22,7 +22,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:autofillHints="@string/full_name"
-        android:background="@drawable/edittext"
+
         android:fontFamily="@font/roboto"
         android:hint="@string/full_name"
         android:inputType="textPersonName"
@@ -36,7 +36,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:autofillHints="@string/id_number"
-        android:background="@drawable/edittext"
+
         android:fontFamily="@font/roboto"
         android:hint="@string/id_number"
         android:inputType="number"
@@ -50,7 +50,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:autofillHints="@string/phone_number"
-        android:background="@drawable/edittext"
+
         android:fontFamily="@font/roboto"
         android:hint="@string/phone_number"
         android:inputType="phone"
@@ -64,7 +64,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:autofillHints="@string/kra_number"
-        android:background="@drawable/edittext"
+
         android:fontFamily="@font/roboto"
         android:hint="@string/kra_number"
         android:inputType="text"
@@ -74,7 +74,7 @@
         android:id="@+id/sacconame"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/edittext"
+
         android:hint="@string/sacco_name"
         android:autofillHints="@string/sacco_name"
         android:layout_below="@+id/kra"

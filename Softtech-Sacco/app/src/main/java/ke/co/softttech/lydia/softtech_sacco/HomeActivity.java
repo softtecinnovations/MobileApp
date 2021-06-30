@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -29,6 +28,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        Menu menu  = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
@@ -46,16 +48,16 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home1:
-                        startActivity(new Intent(HomeActivity.this,HomeActivity.class));
-                        break;
+                        return true;
                     case R.id.services:
-                        startActivity(new Intent(HomeActivity.this,Services.class));
-                        break;
+                        startActivity(new Intent(HomeActivity.this, ServicesActivity.class));
+                        return  true;
                     case R.id.profile:
-                        startActivity(new Intent(HomeActivity.this,Profile.class));
-                        break;
+                        startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+                        return true;
+
                 }
-                return true;
+                return false;
             }
         });
     }
