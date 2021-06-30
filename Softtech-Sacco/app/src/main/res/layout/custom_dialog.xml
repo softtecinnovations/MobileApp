@@ -9,15 +9,17 @@
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
         android:layout_height="44sp"
-        android:background="@color/purple_500">
+        >
 
     <TextView
         android:layout_width="match_parent"
     android:layout_height="44sp"
     android:gravity="center"
     android:text="Enter One Time Password"
-    android:textColor="@color/white"
-    android:textSize="@dimen/dm_20sp" />
+    android:textColor="@color/buttonblue"
+    android:textSize="30sp"
+        android:fontFamily="@font/roboto"
+        />
 
 </LinearLayout>
 
@@ -26,12 +28,14 @@ android:id="@+id/layout_otp"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dm_90sp"
     android:layout_below="@+id/layout_header"
+        android:layout_marginHorizontal="@dimen/dm_40sp"
     android:gravity="center"
     android:orientation="horizontal">
 
     <EditText
         android:id="@+id/editTextone"
-        android:layout_width="@dimen/dm_40sp"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
         android:layout_height="@dimen/dm_42sp"
         android:background="@drawable/otp"
         android:inputType="numberPassword"
@@ -46,19 +50,20 @@ android:id="@+id/layout_otp"
 
     <EditText
         android:id="@+id/editTexttwo"
-        android:layout_width="@dimen/dm_40sp"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
         android:layout_height="@dimen/dm_42sp"
         android:inputType="numberPassword"
         android:background="@drawable/otp"
         android:textAlignment="center"
         android:maxLength="1"
         android:layout_marginEnd="10dp">
-        <requestFocus />
     </EditText>
 
     <EditText
 android:id="@+id/editTextthree"
-    android:layout_width="@dimen/dm_40sp"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
     android:layout_height="@dimen/dm_42sp"
     android:inputType="numberPassword"
     android:background="@drawable/otp"
@@ -68,7 +73,8 @@ android:id="@+id/editTextthree"
 
     <EditText
 android:id="@+id/editTextfour"
-    android:layout_width="@dimen/dm_40sp"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
     android:layout_height="@dimen/dm_42sp"
     android:inputType="numberPassword"
         android:textAlignment="center"
@@ -82,5 +88,9 @@ android:id="@+id/editTextfour"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dm_42sp"
         android:layout_below="@+id/layout_otp"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="100sp"
+        android:background="@drawable/buttons"
+        android:fontFamily="@font/roboto"
         android:text="SUBMIT" />
 </RelativeLayout>

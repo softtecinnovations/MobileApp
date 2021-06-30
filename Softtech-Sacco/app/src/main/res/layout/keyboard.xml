@@ -148,7 +148,7 @@ android:orientation="horizontal">
         android:layout_weight="1"
         android:background="@color/white"
         android:text="0"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textSize="@dimen/dm_20sp"
         android:textColor="@color/black"/>
 
