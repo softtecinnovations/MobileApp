@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Services extends AppCompatActivity {
+public class ServicesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,23 +18,28 @@ public class Services extends AppCompatActivity {
         setContentView(R.layout.activity_services);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        Menu menu  = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home1:
-                        startActivity(new Intent(Services.this,HomeActivity.class));
-                        break;
+                        startActivity(new Intent(ServicesActivity.this, HomeActivity.class));
+                        return true;
                     case R.id.services:
-                        startActivity(new Intent(Services.this,Services.class));
-                        break;
+
+                        return  true;
                     case R.id.profile:
-                        startActivity(new Intent(Services.this,Profile.class));
-                        break;
+                        startActivity(new Intent(ServicesActivity.this, ProfileActivity.class));
+                        return true;
                 }
-                return true;
+                return false;
             }
         });
+
     }
 }
