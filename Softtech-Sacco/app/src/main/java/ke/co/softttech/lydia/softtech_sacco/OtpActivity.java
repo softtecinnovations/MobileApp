@@ -39,7 +39,7 @@ public class OtpActivity extends AppCompatActivity {
 
 //        Custom_DialogBox custom_dialog = new Custom_DialogBox(this);
 //        custom_dialog.show();
-
+        new custom_dialogBox(this);
         listSaccos.setOnClickListener(view -> {getData1();});
     }
 

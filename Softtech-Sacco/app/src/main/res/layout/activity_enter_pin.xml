@@ -18,15 +18,80 @@
         android:textSize="20sp"
         android:layout_marginTop="180dp" />
 
-    <include layout="@layout/pin_edittext"
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="30dp"
-        android:layout_below="@+id/EnterTV"/>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_below="@+id/EnterTV"-->
+<!--        android:padding="20dp">-->
 
-    <ke.co.softttech.lydia.softtech_sacco.Keyboard
+        <EditText
+            android:id="@+id/et1"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:maxLength="4"
+            android:textSize="@dimen/dm_20sp"
+            android:textAlignment="center"
+            android:background="@drawable/otp"
+            android:layout_below="@+id/EnterTV"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="10dp"
+            android:focusableInTouchMode="false"
+            android:inputType="numberPassword" />
+
+<!--        <EditText-->
+<!--            android:id="@+id/et2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:maxLength="1"-->
+<!--            android:ems="10"-->
+<!--            android:textSize="@dimen/dm_20sp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:background="@drawable/otp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:inputType="numberPassword"-->
+<!--            android:focusableInTouchMode="false"-->
+<!--            android:hint="2"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:ems="10"-->
+<!--            android:textSize="@dimen/dm_20sp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:background="@drawable/otp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:maxLength="1"-->
+<!--            android:inputType="numberPassword"-->
+<!--            android:focusableInTouchMode="false"-->
+<!--            android:hint="3"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:ems="10"-->
+<!--            android:maxLength="1"-->
+<!--            android:textSize="@dimen/dm_20sp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:background="@drawable/otp"-->
+<!--            android:inputType="numberPassword"-->
+<!--            android:focusableInTouchMode="false"-->
+<!--            android:hint="4"/>-->
+<!--    </LinearLayout>-->
+
+
+
+
+
+        <ke.co.softttech.lydia.softtech_sacco.Keyboard
         android:id="@+id/keyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
