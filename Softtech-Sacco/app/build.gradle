@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "ke.co.softttech.lydia.softtech_sacco"
-        minSdkVersion 17
+        minSdkVersion 20
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"

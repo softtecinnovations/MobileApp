@@ -19,11 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/logoo"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:autofillHints="@string/full_name"
         android:background="@drawable/edittext"
         android:fontFamily="@font/roboto"
+        android:textColor="@color/black"
         android:hint="@string/full_name"
         android:inputType="textPersonName"
         android:paddingHorizontal="30dp" />
@@ -38,6 +39,7 @@
         android:autofillHints="@string/id_number"
         android:background="@drawable/edittext"
         android:fontFamily="@font/roboto"
+        android:textColor="@color/black"
         android:hint="@string/id_number"
         android:inputType="number"
         android:paddingHorizontal="30dp" />
@@ -52,6 +54,7 @@
         android:autofillHints="@string/phone_number"
         android:background="@drawable/edittext"
         android:fontFamily="@font/roboto"
+        android:textColor="@color/black"
         android:hint="@string/phone_number"
         android:inputType="phone"
         android:paddingHorizontal="30dp" />
@@ -68,6 +71,7 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/kra_number"
         android:inputType="text"
+        android:textColor="@color/black"
         android:paddingHorizontal="30dp" />
 
     <EditText
@@ -77,6 +81,7 @@
         android:background="@drawable/edittext"
         android:hint="@string/sacco_name"
         android:autofillHints="@string/sacco_name"
+        android:textColor="@color/black"
         android:layout_below="@+id/kra"
         android:layout_marginTop="20dp"
         android:paddingHorizontal="30dp"
@@ -88,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sacconame"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_alignEnd="@+id/kra"
         android:background="@drawable/buttons"
         android:text="@string/register"
