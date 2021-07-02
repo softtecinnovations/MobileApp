@@ -1,5 +1,6 @@
 package ke.co.softttech.lydia.softtech_sacco.Db;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -10,28 +11,6 @@ import java.util.List;
 
 @Dao
 public interface DaoAccess {
-//    @Insert
-//    void insertParcels(ParcelModel parcel);
-//
-//
-//    @Query("SELECT * FROM parcelmodel WHERE id = (SELECT MAX(id)  FROM ParcelModel)")
-//    List<ParcelModel> fetchLastParcel();
-//
-//
-//    @Query("SELECT * FROM ParcelModel ORDER BY Parceltime DESC LIMIT 1")
-//    List<ParcelModel> getLastParcel();
-//
-//    @Query("SELECT * FROM ParcelModel")
-//    List<ParcelModel> getAllParcel();
-//
-//
-//    @Update
-//    void updateParcels(ParcelModel parcel);
-//
-//
-//    @Delete
-//    void deleteParcel(ParcelModel parcel);
-
     //////////////////user///////////////
 
     @Insert
@@ -40,10 +19,15 @@ public interface DaoAccess {
     @Query("SELECT * FROM userModel")
     List<UserModel> fetchAllUsers();
 
+    @Query("SELECT user_SaccoName FROM usermodel")
+    List<String> getSaccoName();
+
 
     @Query("SELECT * FROM userModel WHERE id = (SELECT MAX(id) FROM userModel)")
     List<UserModel> getLatsUser();
 
+//    @Query("SELECT * FROM userModel")
+//    LiveData<userodel> getLiveData;
 
     @Update
     void updatePassengers(UserModel passenger);

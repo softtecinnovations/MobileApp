@@ -29,7 +29,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:paddingHorizontal="30dp"
+        android:fontFamily="@font/roboto"
+        android:textColor="@color/black"
         android:textAlignment="inherit"
+        android:layout_marginHorizontal="@dimen/dm_40sp"
         android:layout_marginBottom="300dp"
         android:hint="@string/phone_number"
         android:autofillHints="Phone Number"
@@ -47,9 +50,8 @@
         android:layout_marginStart="@dimen/dm_20sp"
         android:text="@string/register"
         android:fontFamily="@font/roboto"
-        android:textColor="#E32778"
-        android:textSize="18sp"
-        android:textStyle="italic" />
+        android:textColor="@color/sottechblue"
+        android:textSize="18sp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"

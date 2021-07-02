@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 import ke.co.softttech.lydia.softtech_sacco.Db.DatabaseExecutor;
-import ke.co.softttech.lydia.softtech_sacco.Db.UserDb_Impl;
+import ke.co.softttech.lydia.softtech_sacco.Db.UserDb;
 import ke.co.softttech.lydia.softtech_sacco.Db.UserModel;
 
 public class Registration extends AppCompatActivity {
@@ -68,7 +68,7 @@ public class Registration extends AppCompatActivity {
             else {
                 DatabaseExecutor.getInstance().diskIO().execute(() -> {
                     UserModel model = new UserModel(Name,ID,PhoneNumber,KRA,SaccoName);
-                    UserDb_Impl database = (UserDb_Impl) UserDb_Impl.getDatabase(this);
+                    UserDb database =  UserDb.getInstance(this);
                     database.daoAccess().insertUser(model);
                 });
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
