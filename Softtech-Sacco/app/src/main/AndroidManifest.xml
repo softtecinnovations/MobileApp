@@ -17,10 +17,10 @@
 
         <activity android:name=".EnterPin"/>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".OtpActivity" />
         <activity android:name=".Registration"/>
         <activity android:name=".HomeActivity"/>
-        <activity android:name=".Splash">
+        <activity android:name=".Splash"/>
+        <activity android:name=".OtpActivity" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />

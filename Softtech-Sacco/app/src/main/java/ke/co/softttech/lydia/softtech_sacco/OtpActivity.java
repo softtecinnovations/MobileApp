@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,14 +29,14 @@ import ke.co.softttech.lydia.softtech_sacco.Db.DatabaseExecutor;
 import ke.co.softttech.lydia.softtech_sacco.Db.UserDb;
 import ke.co.softttech.lydia.softtech_sacco.Db.UserModel;
 
-public class OtpActivity extends AppCompatActivity {
+public class OtpActivity extends AppCompatActivity implements TextWatcher {
     FloatingActionButton listSaccos;
     TextView timer,noRecordFound;
     LinearLayout receiptLayout;
     AlertDialog.Builder builder;
     ListView saccos,lv;
     View view1;
-    View view;
+    EditText editText_one,editText_two,editText_three,editText_four;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -43,8 +46,6 @@ public class OtpActivity extends AppCompatActivity {
         listSaccos = findViewById(R.id.getList);
         timer = findViewById(R.id.timer);
         builder = new AlertDialog.Builder(this);
-        custom_dialogBox custom_dialog1 = new custom_dialogBox(this);
-        custom_dialog1.create();
 
         listSaccos.setOnClickListener(view -> {getData1();});
         //getData1();
@@ -104,5 +105,42 @@ public class OtpActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        if (editable.length() == 1) {
+            if (editText_one.length() == 1) {
+                editText_two.requestFocus();
+            }
+
+            if (editText_two.length() == 1) {
+                editText_three.requestFocus();
+            }
+
+            if (editText_three.length() == 1) {
+                editText_four.requestFocus();
+            }
+        } else if (editable.length() == 0) {
+            if (editText_four.length() == 0) {
+                editText_three.requestFocus();
+            }
+            if (editText_three.length() == 0) {
+                editText_two.requestFocus();
+            }
+            if (editText_two.length() == 0) {
+                editText_one.requestFocus();
+            }
+        }
     }
 }

@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,21 @@ class custom_dialogBox extends Dialog implements TextWatcher {
     
     public custom_dialogBox(@NonNull Context context) {
         super(context);
+       View view1 = LayoutInflater.from(getContext()).inflate(R.layout.custom_dialog,null);
+        editText_one = view1.findViewById(R.id.editTextone);
+        editText_two = view1.findViewById(R.id.editText_two);
+        editText_three = view1.findViewById(R.id.editTextthree);
+        editText_four = view1.findViewById(R.id.editTextfour);
+
+        editText_one.addTextChangedListener(new custom_dialogBox(context.getApplicationContext()));
+        editText_two.addTextChangedListener(new custom_dialogBox(context.getApplicationContext()));
+        editText_three.addTextChangedListener(new custom_dialogBox(context.getApplicationContext()));
+        editText_four.addTextChangedListener(new custom_dialogBox(context.getApplicationContext()));
+
+//        editText_one = findViewById(R.id.editTextone);
+//        editText_two = findViewById(R.id.editTexttwo);
+//        editText_three = findViewById(R.id.editTextthree);
+//        editText_four = findViewById(R.id.editTextfour);
     }
 
     @Override

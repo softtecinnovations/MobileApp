@@ -23,6 +23,6 @@ public class EnterPin extends AppCompatActivity {
         keyboard.setInputConnection(ic);
         keyboard.setVisibility(View.VISIBLE);
 
-        new custom_dialogBox(this);
+        new custom_dialogBox(this).create();
     }
 }

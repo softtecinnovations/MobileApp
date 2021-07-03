@@ -19,7 +19,9 @@
         android:text="@string/welcome"
         android:fontFamily="@font/roboto"
         android:textColor="@color/buttonblue"
-        android:textSize="40sp" />
+        android:textSize="40sp">
+        <requestFocus/>
+    </TextView>
 
     <EditText
         android:id="@+id/phone"
