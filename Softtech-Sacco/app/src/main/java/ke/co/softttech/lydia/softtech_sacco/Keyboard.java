@@ -1,14 +1,19 @@
 package ke.co.softttech.lydia.softtech_sacco;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,11 +24,12 @@ public class Keyboard extends LinearLayout implements View.OnClickListener {
             button5, button6, button7, button8,
             button9, button0;
     private ImageButton  buttonDelete, buttonEnter;
+    private Activity activity_enter_pin;
 
     private SparseArray<String> keyValues = new SparseArray<>();
     private InputConnection inputConnection;
 
-    public Keyboard(Context context) {
+    public Keyboard(Context context, int keyboard) {
         this(context, null, 0);
     }
 
@@ -99,4 +105,30 @@ public class Keyboard extends LinearLayout implements View.OnClickListener {
     public void setInputConnection(InputConnection ic) {
         inputConnection = ic;
     }
+//
+//    @SuppressLint("ClickableViewAccessibility")
+//    public void pinEditText(int resid){
+//        EditText edittext= (EditText) findViewById(resid);
+//
+//        edittext.setOnFocusChangeListener(new OnFocusChangeListener() {
+//            @Override public void onFocusChange(View v, boolean hasFocus) {
+//               InputConnection ic = edittext.onCreateInputConnection(new EditorInfo());
+//               setInputConnection(ic);
+//           }
+//        });
+//
+//        edittext.setOnTouchListener(new OnTouchListener() {
+//            @Override public boolean onTouch(View v, MotionEvent event) {
+//                EditText edittext = (EditText) v;
+//                int inType = edittext.getInputType();       // Backup the input type
+//                edittext.setInputType(InputType.TYPE_NULL); // Disable standard keyboard
+//                edittext.onTouchEvent(event);               // Call native handler
+//                edittext.setInputType(inType);              // Restore input type
+//                return true; // Consume touch event
+//
+//
+//            }
+//        });
+//    }
 }
+
