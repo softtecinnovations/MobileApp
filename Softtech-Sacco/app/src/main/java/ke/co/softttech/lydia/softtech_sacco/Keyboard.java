@@ -1,19 +1,14 @@
 package ke.co.softttech.lydia.softtech_sacco;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,7 +19,8 @@ public class Keyboard extends LinearLayout implements View.OnClickListener {
             button5, button6, button7, button8,
             button9, button0;
     private ImageButton  buttonDelete, buttonEnter;
-    private Activity activity_enter_pin;
+//    private Activity activity_enter_pin;
+//    Keyboard keyboard= (Keyboard)findViewById(R.id.keyboard);
 
     private SparseArray<String> keyValues = new SparseArray<>();
     private InputConnection inputConnection;
@@ -67,7 +63,7 @@ public class Keyboard extends LinearLayout implements View.OnClickListener {
         buttonDelete = (ImageButton) findViewById(R.id.button_delete);
         buttonDelete.setOnClickListener(this);
         buttonEnter = (ImageButton) findViewById(R.id.button_enter);
-        buttonEnter.setOnClickListener(view -> {Intent intent = new Intent(getContext(),HomeActivity.class);
+        buttonEnter.setOnClickListener(view -> {Intent intent = new Intent(getContext(), MainActivity.class);
         context.startActivity(intent);});
 
         keyValues.put(R.id.button_1, "1");
@@ -102,19 +98,26 @@ public class Keyboard extends LinearLayout implements View.OnClickListener {
         }
     }
 
+//    public void showCustomKeyboard( View v ) {
+//        keyboard.setVisibility(View.VISIBLE);
+//        keyboard.setEnabled(true);
+//        if( v!=null ) {
+//            activity_enter_pin.getSystemService(Activity.INPUT_METHOD_SERVICE);
+//        }
+//    }
+
     public void setInputConnection(InputConnection ic) {
         inputConnection = ic;
     }
-//
+
 //    @SuppressLint("ClickableViewAccessibility")
-//    public void pinEditText(int resid){
-//        EditText edittext= (EditText) findViewById(resid);
+//    public void pinEditText(int resID){
+//        EditText edittext= (EditText) findViewById(resID);
 //
 //        edittext.setOnFocusChangeListener(new OnFocusChangeListener() {
 //            @Override public void onFocusChange(View v, boolean hasFocus) {
-//               InputConnection ic = edittext.onCreateInputConnection(new EditorInfo());
-//               setInputConnection(ic);
-//           }
+//                if (hasFocus) showCustomKeyboard(v);
+//            }
 //        });
 //
 //        edittext.setOnTouchListener(new OnTouchListener() {

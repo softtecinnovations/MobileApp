@@ -29,8 +29,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
         }
     }
 
-    public ServicesAdapter(Context mContext, List<Service> serviceList) {
-        this.mContext = mContext;
+    public ServicesAdapter(Context context, List<Service> serviceList) {
+        mContext = context;
         this.serviceList = serviceList;
     }
 
@@ -44,11 +44,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        Service album = serviceList.get(position);
-        holder.title.setText(album.getTittle());
+        Service service = serviceList.get(position);
+        holder.title.setText(service.getTittle());
 
         // loading image
-        Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
+        Glide.with(mContext).load(service.getThumbnail()).into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override

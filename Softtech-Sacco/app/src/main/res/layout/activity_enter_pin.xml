@@ -14,7 +14,7 @@
         android:text="Enter Your Sacco Pin"
         android:fontFamily="@font/roboto"
         android:textStyle="bold"
-        android:textColor="@color/buttonblue"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:layout_marginTop="180dp" />
 
@@ -28,17 +28,18 @@
         <EditText
             android:id="@+id/et1"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:ems="10"
             android:maxLength="4"
             android:textSize="@dimen/dm_20sp"
             android:textAlignment="center"
-            android:background="@drawable/otp"
             android:layout_below="@+id/EnterTV"
-            android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="10dp"
+            android:background="@drawable/otp"
+            android:layout_marginTop="30dp"
+            android:hint="...."
+            android:textColorHint="@color/black"
             android:focusableInTouchMode="false"
             android:inputType="numberPassword" />
 
