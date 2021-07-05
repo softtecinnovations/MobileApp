@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ public class Registration extends AppCompatActivity {
     EditText id, name, kra, phone, sacco;
     Button register;
     Button sub;
+    ImageButton backregistration;
     private String Name, KRA, PhoneNumber, ID,SaccoName;
 
 
@@ -43,8 +45,9 @@ public class Registration extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         register = findViewById(R.id.register);
         sacco = findViewById(R.id.sacconame);
+        backregistration = findViewById(R.id.backregistration);
 
-
+        backregistration.setOnClickListener(view -> startActivity(new Intent(this,LoginActivity.class)));
         register.setOnClickListener(view -> {
             //if (TextUtils.isEmpty(phone.getText())|| TextUtils.isEmpty(kvbNo.getText())){
 
@@ -83,37 +86,9 @@ public class Registration extends AppCompatActivity {
 
     }
 
-
-
-    public void insertData(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view1 = LayoutInflater.from(this).inflate(R.layout.custom_dialog,null);
-        sub = view1.findViewById(R.id.submit);
-        sub.setOnClickListener(v -> startActivity(new Intent(this,OtpActivity.class)));
-        builder.setView(view1);
-        builder.create().show();
-    }
 }
 
 
 
 
 
-//    public void setBuilder(AlertDialog.Builder builder) {
-//        DatabaseExecutor.getInstance().diskIO().execute(() -> {
-//            UserDb_Impl database = (UserDb_Impl) UserDb_Impl.getDatabase(this);
-//            List<UserModel> parcelList = database.daoAccess().fetchAllUsers();
-//            for (UserModel parcel : parcelList) {
-//
-//            }
-//        });
-//
-//        this.builder = builder;
-//        builder.setMessage("Your data has been sent to sacco admin. The sacco will contact you.")
-//                .setPositiveButton("OK", (dialog, id) -> {
-//                    // END THE APP
-//                });
-//        // Create the AlertDialog object and return it
-//        AlertDialog alert = builder.create();
-//        alert.show();
-//    }

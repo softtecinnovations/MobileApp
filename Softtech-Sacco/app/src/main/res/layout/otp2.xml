@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    tools:context=".otp.OtpActivity">
 
     <LinearLayout
         android:id="@+id/backbar"
@@ -22,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="44sp"
-            android:gravity="left"
+            android:gravity="start"
             android:text="Confirm OTP"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -30,12 +29,28 @@
             />
     </LinearLayout>
 
-    <include
-        layout="@layout/custom_dialog"
+    <TextView
+        android:id="@+id/textmessage"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/otpedt"
+        android:layout_width="200sp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textmessage"
+        android:layout_marginTop="@dimen/dm_20sp"
+        android:hint="OTP"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edittext"/>
+    <Button
+        android:id="@+id/otpbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-         />
+        android:layout_below="@+id/otpedt"
+        android:layout_marginTop="@dimen/dm_20sp"
+        android:layout_centerHorizontal="true"
+        android:text="Get otp"/>
 
     <TextView
         android:layout_width="wrap_content"
