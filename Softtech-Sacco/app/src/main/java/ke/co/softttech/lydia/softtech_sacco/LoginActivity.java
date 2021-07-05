@@ -3,7 +3,6 @@ package ke.co.softttech.lydia.softtech_sacco;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import ke.co.softttech.lydia.softtech_sacco.otp.OtpActivity;
 
 public class LoginActivity extends AppCompatActivity {
     EditText phone;

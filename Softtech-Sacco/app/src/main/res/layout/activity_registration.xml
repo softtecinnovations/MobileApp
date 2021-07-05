@@ -5,93 +5,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="30dp"
     android:background="@color/white"
     tools:context=".Registration">
+        <LinearLayout
+            android:id="@+id/backbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-    <ImageView
-        android:id="@+id/logoo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/logo_foreground"/>
+            android:src="@mipmap/logo_foreground"
+            android:orientation="horizontal" />
 
 
+            <ImageButton
+                android:id="@+id/backregistration"
+                android:layout_width="@dimen/dm_40sp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/backspace"/>
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/logoo"
-        android:layout_marginTop="30dp"
-        android:autofillHints="@string/full_name"
-        android:fontFamily="@font/roboto"
-        android:textColor="@color/black"
-        android:hint="@string/full_name"
-        android:inputType="textPersonName"
-        android:paddingHorizontal="30dp" />
+        <ImageView
+            android:id="@+id/logoo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:src="@mipmap/logo_foreground" />
 
-    <EditText
-        android:id="@+id/ID"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="20dp"
-        android:autofillHints="@string/id_number"
-        android:fontFamily="@font/roboto"
-        android:textColor="@color/black"
-        android:hint="@string/id_number"
-        android:inputType="number"
-        android:paddingHorizontal="30dp" />
+    <ScrollView
+            android:id="@+id/sv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logoo"
+            android:paddingHorizontal="30dp"
+            android:scrollbarSize="0sp"
+            android:layout_centerHorizontal="true"/>
 
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/ID"
-        android:layout_marginTop="20dp"
-        android:autofillHints="@string/phone_number"
-        android:fontFamily="@font/roboto"
-        android:textColor="@color/black"
-        android:hint="@string/phone_number"
-        android:inputType="phone"
-        android:paddingHorizontal="30dp" />
 
-    <EditText
-        android:id="@+id/kra"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/phone"
-        android:layout_marginTop="20dp"
-        android:autofillHints="@string/kra_number"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/kra_number"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:paddingHorizontal="30dp" />
-
-    <EditText
-        android:id="@+id/sacconame"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="@string/sacco_name"
-        android:autofillHints="@string/sacco_name"
-        android:textColor="@color/black"
-        android:layout_below="@+id/kra"
-        android:layout_marginTop="20dp"
-        android:paddingHorizontal="30dp"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/sacconame"
-        android:layout_marginTop="40dp"
-        android:layout_alignEnd="@+id/kra"
-        android:background="@drawable/buttons"
-        android:text="@string/register"
-        android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingHorizontal="30dp"
+                    android:layout_marginTop="0dp"
+                    android:autofillHints="@string/full_name"
+                    android:background="@drawable/edittext"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/black"
+                    android:focusedByDefault="true"
+                    android:hint="@string/full_name"
+                    android:inputType="textPersonName"
+                    />
 
 
 
-</RelativeLayout>
+                <EditText
+                    android:id="@+id/ID"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/name"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="@string/id_number"
+                    android:background="@drawable/edittext"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/black"
+                    android:hint="@string/id_number"
+                    android:inputType="number"
+                    android:paddingHorizontal="30dp" />
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/ID"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="@string/phone_number"
+                    android:background="@drawable/edittext"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/black"
+                    android:hint="@string/phone_number"
+                    android:inputType="phone"
+                    android:paddingHorizontal="30dp" />
+
+                <EditText
+                    android:id="@+id/kra"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/phone"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="@string/kra_number"
+                    android:background="@drawable/edittext"
+                    android:paddingHorizontal="30dp"
+                    android:fontFamily="@font/roboto"
+                    android:hint="@string/kra_number"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    />
+
+                <EditText
+                    android:id="@+id/sacconame"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edittext"
+                    android:hint="@string/sacco_name"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/kra"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="30dp"
+                    android:inputType="text" />
+                <Button
+                    android:id="@+id/register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sacconame"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/buttons"
+                    android:text="@string/register"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+
