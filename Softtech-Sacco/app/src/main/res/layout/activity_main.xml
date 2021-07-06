@@ -7,10 +7,19 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+
+    <ImageButton
+        android:id="@+id/backenterpin"
+        android:layout_width="@dimen/dm_40sp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:src="@drawable/backspace"/>
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/backenterpin"
         android:layout_above="@id/bottom_navigation"
         />
 

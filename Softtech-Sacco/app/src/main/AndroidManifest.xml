@@ -11,15 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SofttechSacco">
 
+
         <activity android:name=".Splash"/>
+
+        <activity android:name=".EnterPin"/>
+
         <activity android:name=".LoginActivity" />
         <activity android:name=".Registration"/>
-
-        <activity android:name=".MainActivity"/>
-
         <activity android:name=".otp.OtpActivity"/>
 
-        <activity android:name=".EnterPin">
+        <activity android:name=".MainActivity">
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -30,5 +31,4 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
 </manifest>
