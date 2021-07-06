@@ -47,16 +47,23 @@ public class ServicesFragment extends Fragment {
     }
 
     private void prepareServiceList() {
-        Service service = new Service("SEND",R.drawable.ic_baseline_send_24);
+
+        int [] icons = new int[] {
+                R.mipmap.logo_foreground,
+                R.drawable.ic_baseline_call_received_24,
+                R.drawable.ic_baseline_compare_arrows_24,
+                R.drawable.ic_baseline_account_balance_24
+        };
+        Service service = new Service("SEND",icons[0]);
         serviceList.add(service);
 
-        service = new Service("RECEIVE",R.drawable.ic_baseline_call_received_24);
+        service = new Service("RECEIVE",icons[1]);
         serviceList.add(service);
 
-        service = new Service("PAY",R.drawable.ic_baseline_compare_arrows_24);
+        service = new Service("PAY",icons[2]);
         serviceList.add(service);
 
-        service = new Service("OTHERS",R.drawable.ic_baseline_account_balance_24);
+        service = new Service("OTHERS",icons[3]);
         serviceList.add(service);
 
         adapter.notifyDataSetChanged();

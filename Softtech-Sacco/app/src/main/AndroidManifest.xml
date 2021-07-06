@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SofttechSacco">
 
-        <activity android:name=".EnterPin"/>
+        <activity android:name=".Splash"/>
         <activity android:name=".LoginActivity" />
         <activity android:name=".Registration"/>
 
@@ -19,7 +19,7 @@
 
         <activity android:name=".otp.OtpActivity"/>
 
-        <activity android:name=".Splash">
+        <activity android:name=".EnterPin">
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
