@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EnterPin">
+
+    <LinearLayout
+        android:id="@+id/backbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+    <ImageButton
+        android:id="@+id/backotp"
+        android:layout_width="@dimen/dm_40sp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:src="@drawable/backspace"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/EnterTV"
@@ -17,13 +29,6 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:layout_marginTop="180dp" />
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_below="@+id/EnterTV"-->
-<!--        android:padding="20dp">-->
 
         <EditText
             android:id="@+id/et1"
@@ -38,60 +43,10 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/otp"
             android:layout_marginTop="30dp"
-            android:hint="...."
+            android:hint="****"
             android:textColorHint="@color/black"
             android:focusableInTouchMode="false"
             android:inputType="numberPassword" />
-
-<!--        <EditText-->
-<!--            android:id="@+id/et2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:maxLength="1"-->
-<!--            android:ems="10"-->
-<!--            android:textSize="@dimen/dm_20sp"-->
-<!--            android:textAlignment="center"-->
-<!--            android:background="@drawable/otp"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:inputType="numberPassword"-->
-<!--            android:focusableInTouchMode="false"-->
-<!--            android:hint="2"/>-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/et3"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:ems="10"-->
-<!--            android:textSize="@dimen/dm_20sp"-->
-<!--            android:textAlignment="center"-->
-<!--            android:background="@drawable/otp"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:maxLength="1"-->
-<!--            android:inputType="numberPassword"-->
-<!--            android:focusableInTouchMode="false"-->
-<!--            android:hint="3"/>-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/et4"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:ems="10"-->
-<!--            android:maxLength="1"-->
-<!--            android:textSize="@dimen/dm_20sp"-->
-<!--            android:textAlignment="center"-->
-<!--            android:background="@drawable/otp"-->
-<!--            android:inputType="numberPassword"-->
-<!--            android:focusableInTouchMode="false"-->
-<!--            android:hint="4"/>-->
-<!--    </LinearLayout>-->
-
-
-
-
-
         <ke.co.softttech.lydia.softtech_sacco.Keyboard
         android:id="@+id/keyboard"
         android:layout_width="match_parent"

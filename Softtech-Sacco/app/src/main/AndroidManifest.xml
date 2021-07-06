@@ -10,17 +10,12 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SofttechSacco">
-
         <activity android:name=".EnterPin"/>
         <activity android:name=".LoginActivity" />
         <activity android:name=".Registration"/>
-
-        <activity android:name=".MainActivity"/>
-
         <activity android:name=".otp.OtpActivity"/>
-
-        <activity android:name=".Splash">
-
+        <activity android:name=".Splash"/>
+        <activity android:name=".MainActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
@@ -30,5 +25,4 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
 </manifest>

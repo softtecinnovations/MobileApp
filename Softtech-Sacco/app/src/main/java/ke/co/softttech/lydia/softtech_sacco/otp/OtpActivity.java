@@ -61,7 +61,7 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
         bactotp = findViewById(R.id.backotp);
         builder = new AlertDialog.Builder(this);
 
-        otpbtn.setOnClickListener(view -> startSmsUserContent());
+//        otpbtn.setOnClickListener(view -> startSmsUserContent());
 
         listSaccos.setOnClickListener(view -> {getData1();});
         bactotp.setOnClickListener(view -> startActivity(new Intent(this, LoginActivity.class)));
@@ -82,7 +82,7 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
             if ((resultCode == RESULT_OK)&&(data!=null)){
                 String messange = data.getStringExtra(SmsRetriever.EXTRA_SMS_MESSAGE);
                 Toast.makeText(getApplicationContext(),messange,Toast.LENGTH_LONG).show();
-                textMessage.setText(String.format("%s - %s",getString(R.string.app_name),messange));
+                //textMessage.setText(String.format("%s - %s",getString(R.string.app_name),messange));
 
                 getOtpMessage(messange);
             }
@@ -93,7 +93,7 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
         Pattern pattern = Pattern.compile("(|^)\\d{6}");
         Matcher matcher = pattern.matcher(message);
         if (matcher.find()){
-            otpedt.setText(matcher.group(0));
+           //  otpedt.setText(matcher.group(0));
         }
     }
 

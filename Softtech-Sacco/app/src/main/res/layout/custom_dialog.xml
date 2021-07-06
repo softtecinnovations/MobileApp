@@ -27,51 +27,26 @@
 
     <EditText
         android:id="@+id/editTextone"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:layout_height="@dimen/dm_42sp"
-        android:background="@drawable/otp"
-        android:inputType="numberPassword"
-        android:textSize="@dimen/dm_20sp"
-        android:maxLength="1"
-        android:textAlignment="center"
+        style="@style/otpedittext"
         android:layout_marginEnd="10dp"
-        android:focusableInTouchMode="false"
-        android:nextFocusRight="@+id/editText_two">
+        >
     </EditText>
 
     <EditText
         android:id="@+id/editTexttwo"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:layout_height="@dimen/dm_42sp"
-        android:inputType="numberPassword"
-        android:background="@drawable/otp"
-        android:textAlignment="center"
-        android:maxLength="1"
+       style="@style/otpedittext"
         android:layout_marginEnd="10dp">
     </EditText>
 
     <EditText
 android:id="@+id/editTextthree"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-    android:layout_height="@dimen/dm_42sp"
-    android:inputType="numberPassword"
-    android:background="@drawable/otp"
+        style="@style/otpedittext"
         android:layout_marginEnd="10dp"
-        android:textAlignment="center"
-    android:maxLength="1"/>
+        />
 
     <EditText
 android:id="@+id/editTextfour"
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-    android:layout_height="@dimen/dm_42sp"
-    android:inputType="numberPassword"
-        android:textAlignment="center"
-    android:maxLength="1"
-        android:background="@drawable/otp"/>
+        style="@style/otpedittext"/>
 
     </LinearLayout>
 
