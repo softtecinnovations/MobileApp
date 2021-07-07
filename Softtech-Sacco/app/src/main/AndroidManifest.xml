@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ke.co.softttech.lydia.softtech_sacco">
 
+<!--    <uses-permission android:name="android.permission.INTERNET"/>-->
+<!--    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -12,7 +15,7 @@
         android:theme="@style/Theme.SofttechSacco">
 
 
-        <activity android:name=".Splash"/>
+        <activity android:name=".MainActivity"/>
 
         <activity android:name=".EnterPin"/>
 
@@ -20,7 +23,7 @@
         <activity android:name=".Registration"/>
         <activity android:name=".otp.OtpActivity"/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splash">
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

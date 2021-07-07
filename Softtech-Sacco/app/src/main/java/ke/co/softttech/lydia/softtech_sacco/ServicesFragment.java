@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +25,8 @@ public class ServicesFragment extends Fragment {
     private RecyclerView recyclerView;
     private ServicesAdapter adapter;
     private List<Service> serviceList;
+    private CarouselView carouselView;
+    int [] sampleImages = {R.drawable.carousel1, R.drawable.carousel2, R.drawable.carousel3, R.drawable.carousel4, R.drawable.carousel5};
 
     @Override
     public View onCreateView(
@@ -31,8 +37,11 @@ public class ServicesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_services, container, false);
 
-        recyclerView = view.findViewById(R.id.recycler_view);
+        carouselView = view.findViewById(R.id.carousel);
+        carouselView.setPageCount(sampleImages.length);
+        carouselView.setImageListener(imageListener);
 
+        recyclerView = view.findViewById(R.id.recycler_view);
         serviceList = new ArrayList<>();
         adapter = new ServicesAdapter(getContext(),serviceList);
 
@@ -45,6 +54,10 @@ public class ServicesFragment extends Fragment {
 
 
     }
+
+    ImageListener imageListener = (position, imageView) -> {
+        imageView.setImageResource(sampleImages[position]);
+    };
 
     private void prepareServiceList() {
 
