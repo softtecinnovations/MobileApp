@@ -1,5 +1,6 @@
 package ke.co.softttech.lydia.softtech_sacco;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import java.util.List;
+
+import ke.co.softttech.lydia.softtech_sacco.Db.DatabaseExecutor;
+import ke.co.softttech.lydia.softtech_sacco.Db.UserDb;
+import ke.co.softttech.lydia.softtech_sacco.Db.UserModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +55,8 @@ public class ProfileFragment extends Fragment {
         return fragment;
     }
 
+    ImageButton logout;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +64,42 @@ public class ProfileFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
+    TextView fullname,id,phone,kra,sacconame;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        assert container != null;
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        logout = view.findViewById(R.id.logout);
+        fullname = view.findViewById(R.id.fullname);
+        id = view.findViewById(R.id.id);
+        phone = view.findViewById(R.id.phon);
+        kra = view .findViewById(R.id.kra);
+        sacconame = view.findViewById(R.id.sacconame);
+        logout.setOnClickListener(view1 -> startActivity(new Intent(getContext(),LoginActivity.class)));
+
+        getUserData();
+
+        return view;
+    }
+
+    public void getUserData(){
+        DatabaseExecutor.getInstance().mainThread().execute(() -> {
+            UserDb database = UserDb.getInstance(getContext());
+            List<UserModel> list = database.daoAccess().getLatsUser();
+            for (UserModel model : list){
+                fullname.setText(model.getUser_Name());
+                id.setText(model.getUser_Id());
+                phone.setText(model.getUser_PhoneNumber());
+                kra.setText(model.getUser_KraPin());
+                sacconame.setText(model.getUser_SaccoName());
+            }
+        });
     }
 }

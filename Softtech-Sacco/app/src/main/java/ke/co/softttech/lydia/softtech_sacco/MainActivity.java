@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 //        MenuItem menuItem = menu.getItem(0);
 //        menuItem.setChecked(true);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ServicesFragment()).commit();
 
     }
 

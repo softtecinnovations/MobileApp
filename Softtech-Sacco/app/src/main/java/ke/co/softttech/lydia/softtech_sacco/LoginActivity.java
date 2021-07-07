@@ -31,19 +31,25 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(view -> {startActivity(new Intent(this,Registration.class));});
 
         otpBtn.setOnClickListener(view -> {
-            phoneNumber = phone.getText().toString();
-            if (TextUtils.isEmpty(phoneNumber)){
+
+            if (TextUtils.isEmpty(getPhoneNumber())){
                 phone.setError("Input your phone number");
-            }else if (phoneNumber.length()!=10){
+            }else if (getPhoneNumber().length()!=10){
                 phone.setError("Invalid phone number");
             }else {
                 setRegister(register);
                 startActivity(new Intent(this, OtpActivity.class));
+                //new ProfileFragment().getUserData(phoneNumber);
             }
         });
         register.setOnClickListener(view -> {
             startActivity(new Intent(this,Registration.class));
         });
+    }
+
+    public String getPhoneNumber(){
+        String phoneNum=phone.getText().toString();
+        return phoneNum;
     }
 
     public void setRegister(TextView register) {

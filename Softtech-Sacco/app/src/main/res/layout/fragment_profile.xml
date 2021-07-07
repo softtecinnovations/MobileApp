@@ -5,11 +5,70 @@
     android:layout_height="wrap_content"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/profilepic"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@color/black"/>
+        android:layout_height="200dp"
+        android:src="@drawable/ic_baseline_person_24"
+        android:contentDescription="@string/sacco_name" />
+    <TextView
+        android:id="@+id/fullname"
+        android:layout_below="@+id/profilepic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dm_20sp"
+        android:paddingStart="@dimen/dm_20sp"
+        android:textSize="17sp"
+        android:text="hhghgj"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_slab"/>
+    <TextView
+        android:id="@+id/id"
+        android:layout_below="@+id/fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dm_20sp"
+        android:paddingStart="@dimen/dm_20sp"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_slab"/>
+    <TextView
+        android:id="@+id/phon"
+        android:layout_below="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dm_20sp"
+        android:paddingStart="@dimen/dm_20sp"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_slab"/>
+    <TextView
+        android:id="@+id/kra"
+        android:layout_below="@+id/phon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dm_20sp"
+        android:paddingStart="@dimen/dm_20sp"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_slab"/>
+    <TextView
+        android:id="@+id/sacconame"
+        android:layout_below="@+id/kra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dm_20sp"
+        android:paddingStart="@dimen/dm_20sp"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_slab"/>
+    <ImageButton
+        android:id="@+id/logout"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_baseline_login_24"
+        android:layout_below="@+id/sacconame"
+        android:contentDescription="@string/sacco_name" />
 
 </RelativeLayout>
