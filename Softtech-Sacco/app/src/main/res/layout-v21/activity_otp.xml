@@ -5,30 +5,23 @@
     android:layout_height="match_parent"
     >
 
-    <LinearLayout
-        android:id="@+id/backbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/dm_20sp">
         <ImageButton
             android:id="@+id/backotp"
-            android:layout_width="50sp"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:src="@drawable/backspace"/>
+            style="@style/backspacebtn"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="44sp"
-            android:gravity="left"
-            android:text="Confirm OTP"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:fontFamily="@font/roboto"
-            />
-    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="44sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/backotp"
+        android:fontFamily="@font/roboto"
+        android:text="Confirm OTP"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
 
     <include
         layout="@layout/custom_dialog"

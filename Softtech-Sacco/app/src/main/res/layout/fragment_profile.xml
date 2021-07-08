@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
     tools:context=".ProfileFragment">
 
     <ImageView
@@ -22,53 +23,60 @@
         android:text="hhghgj"
         android:textColor="@color/black"
         android:fontFamily="@font/roboto_slab"/>
-    <TextView
-        android:id="@+id/id"
-        android:layout_below="@+id/fullname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dm_20sp"
-        android:paddingStart="@dimen/dm_20sp"
-        android:textSize="17sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/roboto_slab"/>
-    <TextView
-        android:id="@+id/phon"
-        android:layout_below="@+id/id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dm_20sp"
-        android:paddingStart="@dimen/dm_20sp"
-        android:textSize="17sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/roboto_slab"/>
-    <TextView
-        android:id="@+id/kra"
-        android:layout_below="@+id/phon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dm_20sp"
-        android:paddingStart="@dimen/dm_20sp"
-        android:textSize="17sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/roboto_slab"/>
-    <TextView
-        android:id="@+id/sacconame"
-        android:layout_below="@+id/kra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dm_20sp"
-        android:paddingStart="@dimen/dm_20sp"
-        android:textSize="17sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/roboto_slab"/>
+<!--    <TextView-->
+<!--        android:id="@+id/id"-->
+<!--        android:layout_below="@+id/fullname"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dm_20sp"-->
+<!--        android:paddingStart="@dimen/dm_20sp"-->
+<!--        android:textSize="17sp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:fontFamily="@font/roboto_slab"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/phon"-->
+<!--        android:layout_below="@+id/id"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dm_20sp"-->
+<!--        android:paddingStart="@dimen/dm_20sp"-->
+<!--        android:textSize="17sp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:fontFamily="@font/roboto_slab"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/kra"-->
+<!--        android:layout_below="@+id/phon"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dm_20sp"-->
+<!--        android:paddingStart="@dimen/dm_20sp"-->
+<!--        android:textSize="17sp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:fontFamily="@font/roboto_slab"/>-->
+<!--    <TextView-->
+<!--        android:id="@+id/sacconame"-->
+<!--        android:layout_below="@+id/kra"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dm_20sp"-->
+<!--        android:paddingStart="@dimen/dm_20sp"-->
+<!--        android:textSize="17sp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:fontFamily="@font/roboto_slab"/>-->
+
+<!--    <ListView-->
+<!--        android:id="@+id/sacconame"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/dm_20sp"-->
+<!--        android:layout_below="@+id/profilepic"/>-->
     <ImageButton
         android:id="@+id/logout"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/ic_baseline_login_24"
-        android:layout_below="@+id/sacconame"
+        android:layout_below="@+id/fullname"
         android:contentDescription="@string/sacco_name" />
 
 </RelativeLayout>

@@ -7,27 +7,18 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/backbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+
     <ImageButton
         android:id="@+id/backenterpin"
-        android:layout_width="@dimen/dm_40sp"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:src="@drawable/backspace"/>
-    </LinearLayout>
+        style="@style/backspacebtn"/>
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/backbar"
+        android:layout_below="@+id/backenterpin"
         android:layout_above="@id/bottom_navigation"
         />
-
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -35,8 +26,10 @@
         style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_navigation_menu"
+        android:layout_alignParentBottom="true"
         android:background="@color/buttonblue"
-        android:layout_alignParentBottom="true"/>
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </RelativeLayout>
