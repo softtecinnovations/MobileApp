@@ -3,26 +3,24 @@ package ke.co.softttech.lydia.softtech_sacco;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import ke.co.softttech.lydia.softtech_sacco.models.ServiceModel;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ServicesAdapter adapter;
-    private List<Service> serviceList;
+    private List<ServiceModel> serviceList;
     ImageButton backenterpin;
 
     @Override

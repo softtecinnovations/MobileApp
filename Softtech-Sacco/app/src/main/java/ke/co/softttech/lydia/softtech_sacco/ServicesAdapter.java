@@ -13,10 +13,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import ke.co.softttech.lydia.softtech_sacco.models.ServiceModel;
+
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Service> serviceList;
+    private List<ServiceModel> serviceList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
@@ -29,7 +31,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
         }
     }
 
-    public ServicesAdapter(Context context, List<Service> serviceList) {
+    public ServicesAdapter(Context context, List<ServiceModel> serviceList) {
         mContext = context;
         this.serviceList = serviceList;
     }
@@ -44,11 +46,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        Service service = serviceList.get(position);
-        holder.title.setText(service.getTittle());
+        ServiceModel serviceModel = serviceList.get(position);
+        holder.title.setText(serviceModel.getTittle());
 
         // loading image
-        Glide.with(mContext).load(service.getThumbnail()).into(holder.thumbnail);
+        Glide.with(mContext).load(serviceModel.getThumbnail()).into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override

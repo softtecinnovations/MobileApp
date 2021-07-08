@@ -10,21 +10,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
+
+import ke.co.softttech.lydia.softtech_sacco.models.ServiceModel;
 
 
 public class ServicesFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ServicesAdapter adapter;
-    private List<Service> serviceList;
+    private List<ServiceModel> serviceList;
     private CarouselView carouselView;
     int [] sampleImages = {R.drawable.carousel1, R.drawable.carousel2, R.drawable.carousel3, R.drawable.carousel4, R.drawable.carousel5};
 
@@ -67,17 +67,17 @@ public class ServicesFragment extends Fragment {
                 R.drawable.ic_baseline_compare_arrows_24,
                 R.drawable.ic_baseline_account_balance_24
         };
-        Service service = new Service("SEND",icons[0]);
-        serviceList.add(service);
+        ServiceModel serviceModel = new ServiceModel("SEND",icons[0]);
+        serviceList.add(serviceModel);
 
-        service = new Service("RECEIVE",icons[1]);
-        serviceList.add(service);
+        serviceModel = new ServiceModel("RECEIVE",icons[1]);
+        serviceList.add(serviceModel);
 
-        service = new Service("PAY",icons[2]);
-        serviceList.add(service);
+        serviceModel = new ServiceModel("PAY",icons[2]);
+        serviceList.add(serviceModel);
 
-        service = new Service("OTHERS",icons[3]);
-        serviceList.add(service);
+        serviceModel = new ServiceModel("OTHERS",icons[3]);
+        serviceList.add(serviceModel);
 
         adapter.notifyDataSetChanged();
 

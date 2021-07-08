@@ -1,13 +1,13 @@
-package ke.co.softttech.lydia.softtech_sacco;
+package ke.co.softttech.lydia.softtech_sacco.models;
 
-public class Service {
+public class ServiceModel {
     private String tittle;
     private int thumbnail;
 
-    public Service() {
+    public ServiceModel() {
     }
 
-    public Service(String tittle, int thumbnail) {
+    public ServiceModel(String tittle, int thumbnail) {
         this.tittle = tittle;
         this.thumbnail = thumbnail;
     }

@@ -1,4 +1,4 @@
-package ke.co.softttech.lydia.softtech_sacco.Db;
+package ke.co.softttech.lydia.softtech_sacco.models;
 
 import java.io.Serializable;
 import androidx.room.Entity;
