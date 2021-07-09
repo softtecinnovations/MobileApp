@@ -3,6 +3,7 @@ package ke.co.softttech.lydia.softtech_sacco.otp;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -68,6 +69,37 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
         //getData1();
         //startSmsUserContent();
 
+
+
+        counter(15000);
+        timer.setOnClickListener(view1 -> {
+            counter(20000);
+            timer.setOnClickListener(view -> {
+                counter(30000);
+                timer.setOnClickListener(view2 -> {
+                    timer.setTextColor(getResources().getColor(R.color.design_default_color_error,getTheme()));
+                    timer.setText("Several attempts, try later.");
+                    timer.setClickable(false);});
+            });
+        });
+
+        }
+
+
+    private void counter(int time){
+            new CountDownTimer(time,1000){
+                @Override
+                public void onTick(long l) {
+                    timer.setText("Time remaining: "+l/1000);
+                }
+
+                @Override
+                public void onFinish() {
+                    timer.setTextColor(getResources().getColor(R.color.sottechblue,getTheme()));
+                    timer.setText("Time out, Resend Code");
+
+                }
+            }.start();
     }
 
     private void startSmsUserContent(){
@@ -167,7 +199,7 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
 
         // add a list
         String[] animals = {"horse", "cow", "camel", "sheep", "goat"};
-        builder.setItems(animals, (dialog, which) -> {
+        builder.setItems(animals, (dialog,which) -> {
             switch (which) {
                 case 0: // horse
                 case 1: // cow

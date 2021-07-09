@@ -4,13 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ServicesFragment">
+    tools:context=".HomeFragment">
 
+    <!-- TODO: Update blank fragment layout -->
+
+    <com.synnapps.carouselview.CarouselView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/carousel"
+        android:layout_marginHorizontal="10dp"
+        app:fillColor="@color/sottechblue"
+        app:slideInterval="3000"
+        app:radius="6dp"
+        app:strokeWidth="1dp"
+        />
     <TextView
         android:id="@+id/servicesTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_below="@+id/carousel"
         android:layout_centerHorizontal="true"
         android:text="Sacco Available Services"
         android:textColor="@color/black"
@@ -21,6 +34,7 @@
         android:id="@+id/recycler_view"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_below="@+id/servicesTV"

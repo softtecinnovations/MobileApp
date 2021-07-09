@@ -10,10 +10,7 @@
 
     <ImageButton
         android:id="@+id/backenterpin"
-        android:layout_width="@dimen/dm_40sp"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:src="@drawable/backspace"/>
+        style="@style/backspacebtn"/>
 
     <FrameLayout
         android:id="@+id/fragment_container"
@@ -30,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/blue"
+        android:background="@color/buttonblue"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:menu="@menu/bottom_navigation_menu" />

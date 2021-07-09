@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //        MenuItem menuItem = menu.getItem(0);
 //        menuItem.setChecked(true);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
     }
 
@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.home1:
-                    selectedFragment = new TransactionsFragment();
+                    selectedFragment = new ServicesFragment();
                     break;
                 case R.id.services:
-                    selectedFragment = new ServicesFragment();
+                    selectedFragment = new HomeFragment();
                     break;
                 case R.id.profile:
                     selectedFragment = new ProfileFragment();

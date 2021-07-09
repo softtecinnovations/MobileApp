@@ -5,18 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".EnterPin">
 
-    <LinearLayout
-        android:id="@+id/backbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
     <ImageButton
         android:id="@+id/backotp"
-        android:layout_width="@dimen/dm_40sp"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:src="@drawable/backspace"/>
-    </LinearLayout>
+        style="@style/backspacebtn"/>
 
     <TextView
         android:id="@+id/EnterTV"
