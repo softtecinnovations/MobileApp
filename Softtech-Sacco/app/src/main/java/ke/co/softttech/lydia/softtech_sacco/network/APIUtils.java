@@ -4,7 +4,7 @@ public class APIUtils {
     
     private APIUtils() {}
 
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "https://8781fd9da7b2.ngrok.io/";
 
     public static RetrofitAPI getAPIService(){
 

@@ -19,7 +19,7 @@ import java.util.List;
 
 import ke.co.softttech.lydia.softtech_sacco.Db.DatabaseExecutor;
 import ke.co.softttech.lydia.softtech_sacco.Db.UserDb;
-import ke.co.softttech.lydia.softtech_sacco.Db.UserModel;
+import ke.co.softttech.lydia.softtech_sacco.models.UserModel;
 import ke.co.softttech.lydia.softtech_sacco.api.Api;
 import ke.co.softttech.lydia.softtech_sacco.api.apiClient;
 import ke.co.softttech.lydia.softtech_sacco.api.model;

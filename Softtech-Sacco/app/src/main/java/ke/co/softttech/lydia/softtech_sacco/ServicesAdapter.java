@@ -1,12 +1,14 @@
 package ke.co.softttech.lydia.softtech_sacco;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -22,12 +24,12 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public ImageView thumbnail;
+        public AppCompatImageView thumbnail;
 
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
-            thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+            thumbnail = (AppCompatImageView) view.findViewById(R.id.thumbnail);
         }
     }
 
@@ -50,12 +52,13 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
         holder.title.setText(serviceModel.getTittle());
 
         // loading image
-        Glide.with(mContext).load(serviceModel.getThumbnail()).into(holder.thumbnail);
+        Glide.with(mContext).load(serviceModel.getThumbnail()).placeholder(R.drawable.ic_baseline_account_balance_wallet_24).into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //go to next fragment with instructions.
+                Intent i = new Intent(mContext,SendActivity.class);
+                mContext.startActivity(i);
             }
         });
     }
