@@ -48,7 +48,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
         holder.title.setText(service.getTittle());
 
         // loading image
-        Glide.with(mContext).load(service.getThumbnail()).into(holder.thumbnail);
+        Glide.with(mContext).load(service.getThumbnail()).placeholder(R.drawable.ic_baseline_account_balance_wallet_24).into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override

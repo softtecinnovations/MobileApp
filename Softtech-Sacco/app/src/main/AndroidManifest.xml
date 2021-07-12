@@ -24,15 +24,16 @@
         <activity android:name=".Registration"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
-        <activity android:name=".otp.OtpActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"/>
+
         <activity android:name=".Splash"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
             <activity android:name=".MainActivity"
                 android:configChanges="orientation|keyboardHidden"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"/>
+        <activity android:name=".otp.OtpActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />

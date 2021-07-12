@@ -7,11 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Registration">
-        <LinearLayout
-            android:id="@+id/backbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+
             <ImageButton
                 android:id="@+id/backregistration"
                 style="@style/backspacebtn"/>
@@ -23,13 +19,13 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="0dp"
             android:src="@mipmap/logo_foreground" />
-        </LinearLayout>
+
 
     <ScrollView
             android:id="@+id/sv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/backbar"
+            android:layout_below="@+id/logoo"
             android:paddingHorizontal="30dp"
             android:scrollbarSize="0sp"
             android:layout_centerHorizontal="true">

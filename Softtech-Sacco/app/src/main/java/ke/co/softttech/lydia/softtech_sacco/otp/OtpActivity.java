@@ -35,6 +35,13 @@ import ke.co.softttech.lydia.softtech_sacco.Db.UserDb;
 import ke.co.softttech.lydia.softtech_sacco.EnterPin;
 import ke.co.softttech.lydia.softtech_sacco.LoginActivity;
 import ke.co.softttech.lydia.softtech_sacco.R;
+import ke.co.softttech.lydia.softtech_sacco.api.Api;
+import ke.co.softttech.lydia.softtech_sacco.api.apiClient;
+import ke.co.softttech.lydia.softtech_sacco.api.model;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class OtpActivity extends AppCompatActivity implements TextWatcher {
     private static final int REQ_USER_CONSENT = 200;
@@ -64,7 +71,7 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
 
 //        otpbtn.setOnClickListener(view -> startSmsUserContent());
 
-        listSaccos.setOnClickListener(view -> {getData1();});
+        listSaccos.setOnClickListener(view -> {getSqlData();});
         bactotp.setOnClickListener(view -> startActivity(new Intent(this, LoginActivity.class)));
         //getData1();
         //startSmsUserContent();
@@ -76,10 +83,11 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
             counter(20000);
             timer.setOnClickListener(view -> {
                 counter(30000);
-                timer.setOnClickListener(view2 -> {
-                    timer.setTextColor(getResources().getColor(R.color.design_default_color_error,getTheme()));
-                    timer.setText("Several attempts, try later.");
-                    timer.setClickable(false);});
+                timer.setTextColor(getResources().getColor(R.color.design_default_color_error,getTheme()));
+                timer.setText("Several attempts, try later.");
+                timer.setClickable(false);
+//                timer.setOnClickListener(view2 -> {
+//                });
             });
         });
 
@@ -163,7 +171,42 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
         view1 = LayoutInflater.from(this).inflate(R.layout.saccol_list,null);
         saccos = view1.findViewById(R.id.saccolist);
         builder.setView(view1);
-        DatabaseExecutor.getInstance().diskIO().execute(() -> {
+
+        Retrofit retrofit = apiClient.getClient();
+        Api api = retrofit.create(Api.class);
+        Call<List<model>> call = apiClient.getInstance().getMyApi().getSaccoss();
+        call.enqueue(new Callback<List<model>>() {
+            @Override
+            public void onResponse(Call<List<model>> call, Response<List<model>> response) {
+                List<model> user = response.body();
+                String[] heroes = new String[user.size()];
+                for (int i = 0;i<user.size();i++){
+                    heroes[i] = user.get(i).getName();
+                }
+
+                ArrayAdapter adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.item,heroes);
+                saccos.setAdapter(adapter);
+                saccos.setOnItemClickListener((adapterView, view, i, l) -> {startActivity(new Intent(getApplicationContext(), EnterPin.class));
+                    closeContextMenu();
+                });
+            }
+
+            @Override
+            public void onFailure(Call<List<model>> call, Throwable t) {
+                //Toast.makeText(this, "Something is wrong somewhere", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        builder.create().show();
+    }
+
+    public void getSqlData(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        view1 = LayoutInflater.from(this).inflate(R.layout.saccol_list,null);
+        saccos = view1.findViewById(R.id.saccolist);
+        builder.setView(view1);
+            DatabaseExecutor.getInstance().diskIO().execute(() -> {
             UserDb database =  UserDb.getInstance(this);
             List<String> list = database.daoAccess().getSaccoName();
             String[] list1 = list.toArray(new String[0]);
@@ -173,7 +216,6 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
             closeContextMenu();
             });
         });
-
         builder.create().show();
     }
 

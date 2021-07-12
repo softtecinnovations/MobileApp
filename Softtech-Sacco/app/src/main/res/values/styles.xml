@@ -17,4 +17,15 @@
         <item name="android:background">@color/white</item>
         <item name="android:src">@drawable/backspace</item>
     </style>
+    <style name="profile">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dm_20sp</item>
+        <item name="android:paddingStart">@dimen/dm_20sp</item>
+        <item name="android:background">@drawable/edittext</item>
+        <item name="android:layout_marginHorizontal">@dimen/dm_20sp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/roboto_slab</item>
+    </style>
 </resources>
