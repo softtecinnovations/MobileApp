@@ -1,6 +1,5 @@
 package ke.co.softttech.lydia.softtech_sacco.Db;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -9,9 +8,11 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import ke.co.softttech.lydia.softtech_sacco.models.UserModel;
+
 @Dao
 public interface DaoAccess {
-    //////////////////user///////////////
+
 
     @Insert
     void insertUser(UserModel user);

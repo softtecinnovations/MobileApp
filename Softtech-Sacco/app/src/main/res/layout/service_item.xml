@@ -22,10 +22,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/thumbnail"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_centerHorizontal="true"
                 android:clickable="true"
                 android:scaleType="fitXY" />
@@ -35,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/thumbnail"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/sottechblue"
                 android:textSize="14sp" />

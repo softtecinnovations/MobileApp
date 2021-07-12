@@ -1,35 +1,39 @@
 package ke.co.softttech.lydia.softtech_sacco;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import ke.co.softttech.lydia.softtech_sacco.models.ServiceModel;
+
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Service> serviceList;
+    private List<ServiceModel> serviceList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public ImageView thumbnail;
+        public AppCompatImageView thumbnail;
 
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
-            thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+            thumbnail = (AppCompatImageView) view.findViewById(R.id.thumbnail);
         }
     }
 
-    public ServicesAdapter(Context context, List<Service> serviceList) {
+    public ServicesAdapter(Context context, List<ServiceModel> serviceList) {
         mContext = context;
         this.serviceList = serviceList;
     }
@@ -44,16 +48,17 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        Service service = serviceList.get(position);
-        holder.title.setText(service.getTittle());
+        ServiceModel serviceModel = serviceList.get(position);
+        holder.title.setText(serviceModel.getTittle());
 
         // loading image
-        Glide.with(mContext).load(service.getThumbnail()).placeholder(R.drawable.ic_baseline_account_balance_wallet_24).into(holder.thumbnail);
+        Glide.with(mContext).load(serviceModel.getThumbnail()).placeholder(R.drawable.ic_baseline_account_balance_wallet_24).into(holder.thumbnail);
 
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //go to next fragment with instructions.
+                Intent i = new Intent(mContext,SendActivity.class);
+                mContext.startActivity(i);
             }
         });
     }

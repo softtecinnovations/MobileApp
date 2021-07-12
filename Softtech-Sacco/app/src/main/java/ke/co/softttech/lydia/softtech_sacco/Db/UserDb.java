@@ -9,6 +9,8 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import ke.co.softttech.lydia.softtech_sacco.models.UserModel;
+
 @Database(entities = {UserModel.class}, version = 1,exportSchema = false)
 public abstract class UserDb extends RoomDatabase {
 

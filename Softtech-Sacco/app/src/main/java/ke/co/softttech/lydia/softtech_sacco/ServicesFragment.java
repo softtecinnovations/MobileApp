@@ -13,17 +13,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
+import com.synnapps.carouselview.CarouselView;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.synnapps.*;
-import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageListener;
+import ke.co.softttech.lydia.softtech_sacco.models.ServiceModel;
+
 
 public class ServicesFragment extends Fragment {
     private RecyclerView recyclerView;
     private ServicesAdapter adapter;
-    private List<Service> serviceList;
+
+    private List<ServiceModel> serviceList;
+    private CarouselView carouselView;
+    int [] sampleImages = {R.drawable.carousel1, R.drawable.carousel2, R.drawable.carousel3, R.drawable.carousel4, R.drawable.carousel5};
 
     int [] icons = new int[] {
             R.mipmap.logo_foreground,
@@ -35,6 +41,7 @@ public class ServicesFragment extends Fragment {
 
     };
     String names[] = {"1","2","3","4","5","6"};
+
 
 
 
@@ -54,7 +61,7 @@ public class ServicesFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         for (int i=0;i<icons.length;i++){
-            service=new Service();
+            service=new ServiceModel();
             service.setThumbnail(icons[1]);
             service.setTittle(names[i]);
 
@@ -69,7 +76,7 @@ public class ServicesFragment extends Fragment {
 
     }
 
-    Service service;
+    ServiceModel service;
 
     private void prepareServiceList() {
 
@@ -82,23 +89,37 @@ public class ServicesFragment extends Fragment {
                 R.drawable.ic_baseline_account_balance_24,
 
         };
-        service = new Service("Buy airtime",icons[0]);
-        serviceList.add(service);
 
-        service = new Service("Send Money",icons[1]);
-        serviceList.add(service);
-
-        service = new Service("Pay Bills",icons[2]);
-        serviceList.add(service);
-
-        service = new Service("Get Statement",icons[3]);
-        serviceList.add(service);
-
-        service = new Service("Find office",icons[4]);
-        serviceList.add(service);
-
-        service = new Service("Contact Admin",icons[5]);
-        serviceList.add(service);
+//        ServiceModel serviceModel = new ServiceModel("SEND",icons[0]);
+//        serviceList.add(serviceModel);
+//
+//        serviceModel = new ServiceModel("RECEIVE",icons[1]);
+//        serviceList.add(serviceModel);
+//
+//        serviceModel = new ServiceModel("PAY",icons[2]);
+//        serviceList.add(serviceModel);
+//
+//        serviceModel = new ServiceModel("OTHERS",icons[3]);
+//        serviceList.add(serviceModel);
+//=======
+//        service = new Service("Buy airtime",icons[0]);
+//        serviceList.add(service);
+//
+//        service = new Service("Send Money",icons[1]);
+//        serviceList.add(service);
+//
+//        service = new Service("Pay Bills",icons[2]);
+//        serviceList.add(service);
+//
+//        service = new Service("Get Statement",icons[3]);
+//        serviceList.add(service);
+//>>>>>>> dc17503e6a07ef92df7b3b1be40a491311e0be7d
+//
+//        service = new Service("Find office",icons[4]);
+//        serviceList.add(service);
+//
+//        service = new Service("Contact Admin",icons[5]);
+//        serviceList.add(service);
 
         adapter.notifyDataSetChanged();
 

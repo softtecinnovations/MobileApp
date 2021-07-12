@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
@@ -19,13 +21,23 @@ import com.synnapps.carouselview.ImageListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import ke.co.softttech.lydia.softtech_sacco.models.PersonModel;
+import ke.co.softttech.lydia.softtech_sacco.models.ServiceModel;
+import ke.co.softttech.lydia.softtech_sacco.network.APIUtils;
+import ke.co.softttech.lydia.softtech_sacco.network.RetrofitAPI;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ServicesAdapter adapter;
-    private List<Service> serviceList;
+    private List<ServiceModel> serviceList;
     private CarouselView carouselView;
+    private RetrofitAPI mRetrofitAPI;
+    private static final String TAG = "HomeFragment";
     int [] sampleImages = {R.drawable.carousel1, R.drawable.carousel2, R.drawable.carousel3, R.drawable.carousel4, R.drawable.carousel5};
 
     @Override
@@ -41,14 +53,16 @@ public class HomeFragment extends Fragment {
         carouselView.setImageListener(imageListener);
 
         recyclerView = view.findViewById(R.id.recycler_view);
-        serviceList = new ArrayList<>();
+        serviceList = new ArrayList<ServiceModel>();
         adapter = new ServicesAdapter(getContext(),serviceList);
+        mRetrofitAPI = APIUtils.getAPIService();
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
         prepareServiceList();
+//        fetchServices();
         return view;
 
 
@@ -66,21 +80,50 @@ public class HomeFragment extends Fragment {
                 R.drawable.ic_baseline_compare_arrows_24,
                 R.drawable.ic_baseline_account_balance_24
         };
-        Service service = new Service("SEND",icons[0]);
+        ServiceModel service = new ServiceModel("SEND",icons[0]);
         serviceList.add(service);
 
-        service = new Service("RECEIVE",icons[1]);
+        service = new ServiceModel("RECEIVE",icons[1]);
         serviceList.add(service);
 
-        service = new Service("PAY",icons[2]);
+        service = new ServiceModel("PAY",icons[2]);
         serviceList.add(service);
 
-        service = new Service("OTHERS",icons[3]);
+        service = new ServiceModel("OTHERS",icons[3]);
         serviceList.add(service);
 
         adapter.notifyDataSetChanged();
 
     }
+
+    //remember to make image a string and set it as url
+
+//    private void fetchServices(){
+//        ServiceModel serviceModel = new ServiceModel();
+//
+//        mRetrofitAPI.getItems(serviceModel).enqueue(new Callback<ServiceModel>() {
+//            @Override
+//            public void onResponse(Call<ServiceModel> call, Response<ServiceModel> response) {
+//
+//                if(response.isSuccessful()) {
+//                    Log.i(TAG, "post submitted to API." + response.body().toString());
+//                    serviceList = (List<ServiceModel>) response.body();
+//                    Log.d("TAG","Response = "+serviceList);
+//                    adapter = new ServicesAdapter(getContext(),serviceList);
+//                    recyclerView.setAdapter(adapter);
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ServiceModel> call, Throwable t) {
+//                Log.e(TAG, "Unable to submit data to API.");
+//
+//            }
+//
+//        });
+
+   // }
 
 
 }
