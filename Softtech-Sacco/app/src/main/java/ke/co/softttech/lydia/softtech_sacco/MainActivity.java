@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,6 +19,7 @@ import ke.co.softttech.lydia.softtech_sacco.models.ServiceModel;
 
 public class MainActivity extends AppCompatActivity {
 
+    LinearLayout logout;
     private RecyclerView recyclerView;
     private ServicesAdapter adapter;
     private List<ServiceModel> serviceList;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         backenterpin = findViewById(R.id.backenterpin);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        logout = findViewById(R.id.logout);
+        logout.setOnClickListener(view1 -> startActivity(new Intent(this,LoginActivity.class)));
 
         backenterpin.setOnClickListener(view -> {startActivity(new Intent(this,EnterPin.class));
             onStop();});
@@ -47,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.home1:
-                    selectedFragment = new ServicesFragment();
+                    selectedFragment = new HomeFragment();
                     break;
                 case R.id.services:
-                    selectedFragment = new HomeFragment();
+                    selectedFragment = new ServicesFragment();
                     break;
                 case R.id.profile:
                     selectedFragment = new ProfileFragment();

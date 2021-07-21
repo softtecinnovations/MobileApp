@@ -12,6 +12,32 @@
         android:id="@+id/backenterpin"
         style="@style/backspacebtn"/>
 
+    <LinearLayout
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="2sp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/out"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="Logout"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_login_24"
+            android:contentDescription="@string/sacco_name" />
+    </LinearLayout>
+
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
