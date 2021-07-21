@@ -2,6 +2,7 @@ package ke.co.softttech.lydia.softtech_sacco.otp;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Editable;
@@ -45,9 +46,11 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
     AlertDialog.Builder builder;
     ListView saccos,lv;
     View view1;
-    TextView timer,textMessage;
+    TextView timer,textMessage, saccoName;
     Button otpbtn;
     EditText editText_one,editText_two,editText_three,editText_four,otpedt;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
 
     @Override
@@ -61,6 +64,7 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
         otpbtn = findViewById(R.id.otpbtn);
         bactotp = findViewById(R.id.backotp);
         builder = new AlertDialog.Builder(this);
+
 
 //        otpbtn.setOnClickListener(view -> startSmsUserContent());
 
@@ -169,8 +173,15 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
             String[] list1 = list.toArray(new String[0]);
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.item,list1);
             saccos.setAdapter(adapter);
-            saccos.setOnItemClickListener((adapterView, view, i, l) -> {startActivity(new Intent(this, EnterPin.class));
-            closeContextMenu();
+            saccos.setOnItemClickListener((adapterView, view, i, l) -> {
+                String Name = ((TextView) view.findViewById(R.id.item_selected)).getText().toString();
+
+                sharedPreferences = getSharedPreferences("MySharedPreferences", MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                editor.putString("saccoName",Name);
+                editor.apply();
+                startActivity(new Intent(this, EnterPin.class));
+                closeContextMenu();
             });
         });
 

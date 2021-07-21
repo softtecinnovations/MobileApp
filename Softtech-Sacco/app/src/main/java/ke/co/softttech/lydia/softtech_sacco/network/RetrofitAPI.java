@@ -17,4 +17,6 @@ public interface RetrofitAPI {
     Call<PersonModel> createPost(@Body PersonModel personModel);
     @GET("/actions")
     Call<ServiceModel> getItems(@Body ServiceModel serviceModel);
+//    @POST("/pin")
+//    Call<ServiceModel> getItems(@Body ServiceModel serviceModel);
 }

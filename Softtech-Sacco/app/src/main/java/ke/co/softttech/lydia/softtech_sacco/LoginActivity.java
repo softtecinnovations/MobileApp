@@ -2,7 +2,9 @@ package ke.co.softttech.lydia.softtech_sacco;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,6 +19,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText phone;
     TextView register;
     FloatingActionButton otpBtn;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     String phoneNumber;//= phone.getText().toString();
 
@@ -38,6 +42,10 @@ public class LoginActivity extends AppCompatActivity {
                 phone.setError("Invalid phone number");
             }else {
                 setRegister(register);
+                sharedPreferences = getSharedPreferences("MySharedPreferences", MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                editor.putString("phoneNumber",phone.getText().toString());
+                editor.apply();
                 startActivity(new Intent(this, OtpActivity.class));
                 //new ProfileFragment().getUserData(phoneNumber);
             }
