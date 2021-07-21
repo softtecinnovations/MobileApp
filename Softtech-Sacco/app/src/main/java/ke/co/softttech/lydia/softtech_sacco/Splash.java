@@ -20,18 +20,18 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-//        ConnectivityManager cm = (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-//        if(cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected())
-//        {
+       ConnectivityManager cm = (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+       if(cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected())
+       {
             handler = new Handler();
             handler.postDelayed(() -> {
                 Intent intent=new Intent(Splash.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
-            },2000);
+            },5000);
         }
-//        Toast.makeText(this, "No Internet Connection",Toast.LENGTH_LONG).show();
-//    }
+        Toast.makeText(this, "No Internet Connection",Toast.LENGTH_LONG).show();
+   }
 
 
     }

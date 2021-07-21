@@ -37,6 +37,7 @@ import ke.co.softttech.lydia.softtech_sacco.LoginActivity;
 import ke.co.softttech.lydia.softtech_sacco.R;
 import ke.co.softttech.lydia.softtech_sacco.api.Api;
 import ke.co.softttech.lydia.softtech_sacco.api.apiClient;
+import ke.co.softttech.lydia.softtech_sacco.api.members;
 import ke.co.softttech.lydia.softtech_sacco.api.model;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -72,8 +73,8 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
 //        otpbtn.setOnClickListener(view -> startSmsUserContent());
 
         listSaccos.setOnClickListener(view -> {getSqlData();});
-        bactotp.setOnClickListener(view -> startActivity(new Intent(this, LoginActivity.class)));
-        //getData1();
+        bactotp.setOnClickListener(view -> {startActivity(new Intent(this, LoginActivity.class));finish();});
+        getData1();
         //startSmsUserContent();
 
 
@@ -174,26 +175,27 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
 
         Retrofit retrofit = apiClient.getClient();
         Api api = retrofit.create(Api.class);
-        Call<List<model>> call = apiClient.getInstance().getMyApi().getSaccoss();
-        call.enqueue(new Callback<List<model>>() {
+        Call<List<members>> call = apiClient.getInstance().getMyApi().getSaccoss();
+        call.enqueue(new Callback<List<members>>() {
             @Override
-            public void onResponse(Call<List<model>> call, Response<List<model>> response) {
-                List<model> user = response.body();
+            public void onResponse(Call<List<members>> call, Response<List<members>> response) {
+                List<members> user = response.body();
                 String[] heroes = new String[user.size()];
                 for (int i = 0;i<user.size();i++){
-                    heroes[i] = user.get(i).getName();
+                    heroes[i] = user.get(i).getSacconame();
                 }
 
                 ArrayAdapter adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.item,heroes);
                 saccos.setAdapter(adapter);
-                saccos.setOnItemClickListener((adapterView, view, i, l) -> {startActivity(new Intent(getApplicationContext(), EnterPin.class));
+                saccos.setOnItemClickListener((adapterView, view, i, l) -> {
+                    startActivity(new Intent(getApplicationContext(), EnterPin.class));
                     closeContextMenu();
                 });
             }
 
             @Override
-            public void onFailure(Call<List<model>> call, Throwable t) {
-                //Toast.makeText(this, "Something is wrong somewhere", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<List<members>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Something is wrong somewhere", Toast.LENGTH_LONG).show();
             }
         });
 
