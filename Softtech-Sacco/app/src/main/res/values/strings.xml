@@ -7,6 +7,8 @@
     <string name="welcome">Welcome</string>
     <string name="register">Register</string>
     <string name="click_to_get_otp">Click to get OTP</string>
+    <string name="biulder_title">That\'s great!</string>
+    <string name="biulder_msg">Your data has been sent to sacco admin. The sacco will contact you.</string>
 
     <string name="timer">Timer</string>
     <string name="otp_verification">OTP verification</string>

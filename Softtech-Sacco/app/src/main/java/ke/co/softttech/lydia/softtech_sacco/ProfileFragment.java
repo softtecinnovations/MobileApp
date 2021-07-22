@@ -19,6 +19,7 @@ import java.util.List;
 
 import ke.co.softttech.lydia.softtech_sacco.Db.DatabaseExecutor;
 import ke.co.softttech.lydia.softtech_sacco.Db.UserDb;
+import ke.co.softttech.lydia.softtech_sacco.api.members;
 import ke.co.softttech.lydia.softtech_sacco.models.UserModel;
 import ke.co.softttech.lydia.softtech_sacco.api.Api;
 import ke.co.softttech.lydia.softtech_sacco.api.apiClient;
@@ -75,7 +76,7 @@ public class ProfileFragment extends Fragment {
     private void getapiData(){
         Retrofit retrofit = apiClient.getClient();
         api = retrofit.create(Api.class);
-        Call<List<model>> call = apiClient.getInstance().getMyApi().getSaccoss();
+        Call<List<members>> call = apiClient.getInstance().getMyApi().getSaccoss();
 //
 //        call.enqueue(new Callback<List<model>>() {
 //            @Override
@@ -92,20 +93,20 @@ public class ProfileFragment extends Fragment {
 //
 //            }
  //       });
-        call.enqueue(new Callback<List<model>>() {
+        call.enqueue(new Callback<List<members>>() {
             @Override
-            public void onResponse(Call<List<model>> call, Response<List<model>> response) {
-                List<model> user = response.body();
+            public void onResponse(Call<List<members>> call, Response<List<members>> response) {
+                List<members> user = response.body();
                 String[] heroes = new String[user.size()];
                 for (int i = 0;i<user.size();i++){
-                    heroes[i] = user.get(i).getName();
+                    heroes[i] = user.get(i).getFullname();
                 }
 
                 saccos.setAdapter(new ArrayAdapter<>(context,R.layout.item, heroes));
             }
 
             @Override
-            public void onFailure(Call<List<model>> call, Throwable t) {
+            public void onFailure(Call<List<members>> call, Throwable t) {
                 Toast.makeText(getContext(), "Something is wrong somewhere", Toast.LENGTH_SHORT).show();
             }
         });

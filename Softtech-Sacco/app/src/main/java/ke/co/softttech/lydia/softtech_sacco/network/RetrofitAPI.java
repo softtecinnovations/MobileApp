@@ -12,9 +12,10 @@ import retrofit2.http.POST;
 public interface RetrofitAPI {
 //    @POST("/phonenumber")
 //    Call<PersonModel> createPost(@Body PersonModel personModel);
-    @POST("/people")
+    @POST("/members")
     @FormUrlEncoded
     Call<PersonModel> createPost(@Body PersonModel personModel);
+
     @GET("/actions")
     Call<ServiceModel> getItems(@Body ServiceModel serviceModel);
 //    @POST("/pin")

@@ -1,6 +1,5 @@
 package ke.co.softttech.lydia.softtech_sacco;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,8 +14,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import java.util.List;
+
 import ke.co.softttech.lydia.softtech_sacco.Db.DatabaseExecutor;
 import ke.co.softttech.lydia.softtech_sacco.Db.UserDb;
+import ke.co.softttech.lydia.softtech_sacco.api.Api;
+import ke.co.softttech.lydia.softtech_sacco.api.apiClient;
+import ke.co.softttech.lydia.softtech_sacco.api.members;
+import ke.co.softttech.lydia.softtech_sacco.api.model;
 import ke.co.softttech.lydia.softtech_sacco.models.PersonModel;
 import ke.co.softttech.lydia.softtech_sacco.models.UserModel;
 import ke.co.softttech.lydia.softtech_sacco.network.APIUtils;
@@ -24,6 +29,7 @@ import ke.co.softttech.lydia.softtech_sacco.network.RetrofitAPI;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class Registration extends AppCompatActivity {
 
@@ -51,7 +57,7 @@ public class Registration extends AppCompatActivity {
         sacco = findViewById(R.id.sacconame);
         backregistration = findViewById(R.id.backregistration);
 
-        backregistration.setOnClickListener(view -> startActivity(new Intent(this,LoginActivity.class)));
+        backregistration.setOnClickListener(view -> {startActivity(new Intent(this,LoginActivity.class));finish();});
         register.setOnClickListener(view -> {
             //if (TextUtils.isEmpty(phone.getText())|| TextUtils.isEmpty(kvbNo.getText())){
 
@@ -73,20 +79,38 @@ public class Registration extends AppCompatActivity {
                 sacco.setError("Please Fill in the Field!");
             }
             else {
-//                    insertUser();
-                postData(Name,KRA,SaccoName,ID,PhoneNumber);
+                //         insertUser();
+                post(Name,KRA,SaccoName,ID,PhoneNumber);
+                name.getText().clear();
+                sacco.getText().clear();
+                id.getText().clear();
+                phone.getText().clear();
+                kra.getText().clear();
 
 
             }
+
         });
 
     }
+    public void post(String name, String KRA, String saccoName, String ID, String phoneNumber){
+        members memb = new members(ID,name,phoneNumber,KRA,saccoName);
+        Retrofit retrofit = apiClient.getClient();
+        Api api = retrofit.create(Api.class);
+        Call<List<members>> call = apiClient.getInstance().getMyApi().createPost(memb);
+        call.enqueue(new Callback<List<members>>() {
 
-    private void insertUser(){
-        DatabaseExecutor.getInstance().diskIO().execute(() -> {
-            UserModel model = new UserModel(Name,ID,PhoneNumber,KRA,SaccoName);
-            UserDb database =  UserDb.getInstance(this);
-            database.daoAccess().insertUser(model);
+            @Override
+            public void onResponse(Call<List<members>> call, Response<List<members>> response) {
+//                Log.i(TAG, "post submitted to API." + response.body().toString());
+                Toast.makeText(getApplicationContext(), "Data Successfully Submitted", Toast.LENGTH_SHORT).show();
+                showDialog();
+            }
+
+            @Override
+            public void onFailure(Call<List<members>> call, Throwable throwable) {
+                Toast.makeText(getApplicationContext(), "Please check your internet!", Toast.LENGTH_LONG).show();
+            }
         });
 
     }
@@ -101,7 +125,7 @@ public class Registration extends AppCompatActivity {
                     Log.i(TAG, "post submitted to API." + response.body().toString());
                     Toast.makeText(getApplicationContext(), "Data Successfully Submitted", Toast.LENGTH_SHORT).show();
 
-                    showDialog();
+//                    showDialog();
                 }
             }
 
@@ -115,10 +139,12 @@ public class Registration extends AppCompatActivity {
     }
 
     public void showDialog(){
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Your data has been sent to sacco admin. The sacco will contact you.")
-                .setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, id) -> startActivity(new Intent(Registration.this, EnterPin.class)));
+        builder.setTitle(R.string.biulder_title);
+        builder.setMessage(R.string.biulder_msg)
+                .setPositiveButton("OK", (dialog, id) -> {
+                    startActivity(new Intent(Registration.this, LoginActivity.class));
+                    finish();});
         builder.create().show();
     }
 }

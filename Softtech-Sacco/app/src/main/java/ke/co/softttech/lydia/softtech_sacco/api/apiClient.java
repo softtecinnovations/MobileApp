@@ -10,7 +10,7 @@ public class apiClient {
 
     public static Retrofit getClient(){
         if (retrofit == null){
-            retrofit = new Retrofit.Builder().baseUrl(Api.BASE_URL)
+            retrofit = new Retrofit.Builder().baseUrl(Api.BASE_POST)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
@@ -18,7 +18,7 @@ public class apiClient {
     }
 
     private apiClient(){
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.BASE_URL)
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.BASE_POST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         myApi = retrofit.create(Api.class);

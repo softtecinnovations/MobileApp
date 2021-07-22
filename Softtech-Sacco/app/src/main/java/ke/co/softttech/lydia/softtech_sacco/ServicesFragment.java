@@ -40,7 +40,7 @@ public class ServicesFragment extends Fragment {
             R.drawable.carousel4,
 
     };
-    String names[] = {"1","2","3","4","5","6"};
+    String names[] = {"My Account","Pay Bils","Buy Airtime","Find Office","Contact Admin","Get Statement"};
 
 
 
