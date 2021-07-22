@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SofttechSacco">
-        <activity android:name=".SendActivity"></activity>
+        <activity android:name=".WithdrawActivity"></activity>
+        <activity android:name=".SendActivity" />
         <activity
             android:name=".EnterPin"
             android:configChanges="orientation|keyboardHidden"
@@ -25,7 +26,6 @@
         <activity
             android:name=".Registration"
             android:configChanges="orientation|keyboardHidden"
-
             android:screenOrientation="portrait" />
         <activity
             android:name=".otp.OtpActivity"

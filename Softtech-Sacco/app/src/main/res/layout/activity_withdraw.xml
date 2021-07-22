@@ -10,11 +10,11 @@
         style="@style/backspacebtn"/>
 
     <TextView
-        android:id="@+id/SendTV"
+        android:id="@+id/WithdrawTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Pay Loan!"
+        android:text="Withdraw From Bank!"
         android:fontFamily="@font/roboto"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -31,8 +31,8 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:layout_marginTop="80dp"
-        android:layout_below="@+id/SendTV"/>
+        android:layout_below="@+id/WithdrawTV"
+        android:layout_marginTop="80dp" />
 
     <EditText
         android:id="@+id/et1"
