@@ -22,7 +22,7 @@ public interface Api {
     @GET("member")
     Call<List<members>> getSaccos();
 
-    String BASE_POST = "https://c3b8c02e17dd.ngrok.io/";
+    String BASE_POST = "https://415a4ae2a0bc.ngrok.io/";
     @POST("save")
     Call<List<members>> createPost(@Body members personModel);
 

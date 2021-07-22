@@ -93,17 +93,6 @@ public class Registration extends AppCompatActivity {
         });
 
     }
-
-    private void insertUser(){
-        DatabaseExecutor.getInstance().diskIO().execute(() -> {
-            UserModel model = new UserModel(Name,ID,PhoneNumber,KRA,SaccoName);
-            UserDb database =  UserDb.getInstance(this);
-            database.daoAccess().insertUser(model);
-        });
-        showDialog();
-
-    }
-
     public void post(String name, String KRA, String saccoName, String ID, String phoneNumber){
         members memb = new members(ID,name,phoneNumber,KRA,saccoName);
         Retrofit retrofit = apiClient.getClient();
@@ -150,7 +139,6 @@ public class Registration extends AppCompatActivity {
     }
 
     public void showDialog(){
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.biulder_title);
         builder.setMessage(R.string.biulder_msg)

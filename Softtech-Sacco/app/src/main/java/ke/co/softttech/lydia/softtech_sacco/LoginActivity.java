@@ -3,12 +3,15 @@ package ke.co.softttech.lydia.softtech_sacco;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,10 +30,16 @@ import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
     EditText phone;
-    TextView register;
+    TextView register,dialogmngs;
+    ProgressBar progressBar;
     FloatingActionButton otpBtn;
-    View view;
+
+    View view,viewMsg;
     AlertDialog.Builder builder;
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
 
     String phoneNumber;//= phone.getText().toString();
 
@@ -39,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         phone = findViewById(R.id.phone);
+        progressBar = findViewById(R.id.progressBar);
         register = findViewById(R.id.regtxt);
         otpBtn = findViewById(R.id.floatingActionButton);
         view= LayoutInflater.from(this).inflate(R.layout.progressbar,null);
@@ -55,7 +65,15 @@ public class LoginActivity extends AppCompatActivity {
             }else if (getPhoneNumber().length()!=10){
                 phone.setError("Invalid phone number");
             }else {
+
                 authenticateUser();
+
+                setRegister(register);
+                sharedPreferences = getSharedPreferences("MySharedPreferences", MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                editor.putString("phoneNumber",phone.getText().toString());
+                editor.apply();
+
             }
         });
     }
@@ -64,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
         Retrofit retrofit = apiClient.getClient();
         Api api = retrofit.create(Api.class);
         Call<List<members>> call = apiClient.getInstance().getMyApi().getSaccoss();
-        builder.create().show();
+        //progressBar.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<List<members>>() {
             @Override
             public void onResponse(Call<List<members>> call, Response<List<members>> response) {
@@ -77,23 +95,30 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), OtpActivity.class));
                         finish();
                         phone.getText().clear();
-
                     }else {
-                        phone.setError("You are not a registered member of the sacco!");
+                        builder.setView(null);
+//                        dialogmngs.setText("You are not registered in any sacco");
+//                        builder.setView(dialogmngs);
+                        builder.setMessage("You are not a registered member of any Sac");
+                        builder.setNegativeButton("ok",(dialog,id) -> {closeContextMenu();});
+                        builder.create().show();
                     }
                 }
-
             }
+
 
             @Override
             public void onFailure(Call<List<members>> call, Throwable throwable) {
                 builder.setView(null);
+//                dialogmngs.setText("You are not registered in any sacco");
+//                builder.setView(dialogmngs);
                 builder.setMessage("Unable to Login");
                 builder.setNegativeButton("ok",(dialog,id) -> {closeContextMenu();});
                 builder.create().show();
                 Toast.makeText(getApplicationContext(), "Something is wrong somewhere,ensure you are connected to the net", Toast.LENGTH_LONG).show();
             }
         });
+        builder.create().show();
     }
 
     public String getPhoneNumber(){
