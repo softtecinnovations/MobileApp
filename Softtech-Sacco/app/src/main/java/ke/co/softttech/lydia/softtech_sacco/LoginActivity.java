@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                         builder.setView(null);
 //                        dialogmngs.setText("You are not registered in any sacco");
 //                        builder.setView(dialogmngs);
-                        builder.setMessage("You are not a registered member of any Sac");
+                        builder.setMessage("You are not a registered member of any Sacco");
                         builder.setNegativeButton("ok",(dialog,id) -> {closeContextMenu();});
                         builder.create().show();
                     }

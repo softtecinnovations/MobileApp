@@ -44,25 +44,26 @@ public class EnterPin extends AppCompatActivity {
 
         backotp.setOnClickListener(view -> {
             PersonModel personModel = new PersonModel();
-            mRetrofitAPI.createPost(personModel).enqueue(new Callback<PersonModel>() {
-                @Override
-                public void onResponse(Call<PersonModel> call, Response<PersonModel> response) {
-
-                    if(response.isSuccessful()) {
-                        Log.i(TAG, "pin submitted to API." + response.body().toString());
-
-                       startActivity();
-
-
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<PersonModel> call, Throwable t) {
-                    Log.e(TAG, "Unable to send pin to API.");
-                }
-
-            });
+            startActivity();
+//            mRetrofitAPI.createPost(personModel).enqueue(new Callback<PersonModel>() {
+//                @Override
+//                public void onResponse(Call<PersonModel> call, Response<PersonModel> response) {
+//
+//                    if(response.isSuccessful()) {
+//                        Log.i(TAG, "pin submitted to API." + response.body().toString());
+//
+//                       startActivity();
+//
+//
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<PersonModel> call, Throwable t) {
+//                    Log.e(TAG, "Unable to send pin to API.");
+//                }
+//
+//            });
 
 
         });
@@ -78,5 +79,6 @@ public class EnterPin extends AppCompatActivity {
 
         startActivity(new Intent(this,OtpActivity.class));
         onStop();
+        finish();
     }
 }

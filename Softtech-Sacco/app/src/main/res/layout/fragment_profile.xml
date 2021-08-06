@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/white"
     tools:context=".ProfileFragment">
@@ -14,29 +14,102 @@
         android:src="@drawable/ic_baseline_person_24"
         android:contentDescription="@string/sacco_name" />
 
-    <TextView
-        android:id="@+id/fullname"
-        android:layout_below="@+id/profilepic"
-        style="@style/profile"/>
-    <TextView
-        android:id="@+id/id"
-        android:layout_below="@+id/fullname"
-        style="@style/profile"/>
-    <TextView
-        android:id="@+id/phon"
-        android:layout_below="@+id/id"
-        style="@style/profile"/>
-    <TextView
-        android:id="@+id/kra"
-        android:layout_below="@+id/phon"
-        style="@style/profile"/>
-    <TextView
-        android:id="@+id/sacconame"
-        android:layout_below="@+id/kra"
-        style="@style/profile"/>
+    <LinearLayout
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dm_20sp"
+            android:background="@drawable/profileleft"
+            android:gravity="center|start"
+            android:backgroundTint="@color/sottechblue"
+            android:paddingStart="10dp"
+            android:layout_marginStart="10sp"
+            android:text="@string/full_name"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dm_20sp"
+            android:background="@drawable/profileleft"
+            android:gravity="center|start"
+            android:backgroundTint="@color/sottechblue"
+            android:paddingStart="10dp"
+            android:layout_marginStart="10sp"
+            android:text="@string/phone_number"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dm_20sp"
+            android:background="@drawable/profileleft"
+            android:gravity="center|start"
+            android:backgroundTint="@color/sottechblue"
+            android:paddingStart="10dp"
+            android:layout_marginStart="10sp"
+            android:text="@string/kra_number"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dm_20sp"
+            android:background="@drawable/profileleft"
+            android:gravity="center|start"
+            android:backgroundTint="@color/sottechblue"
+            android:paddingStart="10dp"
+            android:layout_marginStart="10sp"
+            android:text="@string/sacco_name"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fullname"
+            style="@style/profile"
+            android:layout_below="@+id/profilepic" />
+        <!--    <TextView-->
+        <!--        android:id="@+id/id"-->
+        <!--        android:layout_below="@+id/fullname"-->
+        <!--        style="@style/profile"/>-->
+        <TextView
+            android:id="@+id/phon"
+            style="@style/profile"
+            android:layout_below="@+id/fullname" />
+
+        <TextView
+            android:id="@+id/kra"
+            style="@style/profile"
+            android:layout_below="@+id/phon" />
+
+        <TextView
+            android:id="@+id/sacconame"
+            style="@style/profile"
+            android:layout_below="@+id/kra" />
+
+    </LinearLayout>
 
 
-<!--    <ListView-->
+    <!--    <ListView-->
 <!--        android:id="@+id/sacconame"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->

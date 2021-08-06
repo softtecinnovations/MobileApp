@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         logout = findViewById(R.id.logout);
-        logout.setOnClickListener(view1 -> startActivity(new Intent(this,LoginActivity.class)));
+        logout.setOnClickListener(view1 -> {startActivity(new Intent(this,LoginActivity.class));finish();});
 
         backenterpin.setOnClickListener(view -> {startActivity(new Intent(this,EnterPin.class));
-            onStop();});
+            finish();});
 //        Menu menu  = bottomNavigationView.getMenu();
 //        MenuItem menuItem = menu.getItem(0);
 //        menuItem.setChecked(true);

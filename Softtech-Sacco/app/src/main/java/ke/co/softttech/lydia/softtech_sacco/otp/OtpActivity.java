@@ -76,9 +76,9 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
 
 //        otpbtn.setOnClickListener(view -> startSmsUserContent());
 
-        listSaccos.setOnClickListener(view -> {getSqlData();});
+        listSaccos.setOnClickListener(view -> {getData1();});
         bactotp.setOnClickListener(view -> {startActivity(new Intent(this, LoginActivity.class));finish();});
-        getData1();
+
         //startSmsUserContent();
 
 
@@ -194,6 +194,7 @@ public class OtpActivity extends AppCompatActivity implements TextWatcher {
                 saccos.setOnItemClickListener((adapterView, view, i, l) -> {
                     startActivity(new Intent(getApplicationContext(), EnterPin.class));
                     closeContextMenu();
+                    finish();
                 });
             }
 
