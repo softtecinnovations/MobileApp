@@ -54,13 +54,13 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyView
         // loading image
         Glide.with(mContext).load(serviceModel.getThumbnail()).placeholder(R.drawable.ic_baseline_account_balance_wallet_24).into(holder.thumbnail);
 
-        holder.thumbnail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext,SendActivity.class);
-                mContext.startActivity(i);
-            }
-        });
+//        holder.thumbnail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(mContext,SendActivity.class);
+//                mContext.startActivity(i);
+//            }
+//        });
     }
 
     @Override

@@ -1,5 +1,7 @@
 package ke.co.softttech.lydia.softtech_sacco;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.synnapps.carouselview.CarouselView;
@@ -25,6 +28,7 @@ import ke.co.softttech.lydia.softtech_sacco.models.PersonModel;
 import ke.co.softttech.lydia.softtech_sacco.models.ServiceModel;
 import ke.co.softttech.lydia.softtech_sacco.network.APIUtils;
 import ke.co.softttech.lydia.softtech_sacco.network.RetrofitAPI;
+import ke.co.softttech.lydia.softtech_sacco.otp.OtpActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,6 +41,7 @@ public class HomeFragment extends Fragment {
     private List<ServiceModel> serviceList;
     private CarouselView carouselView;
     private RetrofitAPI mRetrofitAPI;
+    private Context mContext;
     private static final String TAG = "HomeFragment";
     int [] sampleImages = {R.drawable.carousel1, R.drawable.carousel2, R.drawable.carousel3, R.drawable.carousel4, R.drawable.carousel5};
 
@@ -61,6 +66,29 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+        recyclerView.addOnItemTouchListener(new RecyclerClickListener(getContext(), recyclerView, new RecyclerClickListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                ServiceModel service = serviceList.get(position);
+                String tittle = ((TextView) view.findViewById(R.id.title)).getText().toString();
+                switch (tittle) {
+                    case "PAY":
+                        startActivity(new Intent(getContext(), SendActivity.class));
+                        break;
+                    case "RECEIVE":
+                        startActivity(new Intent(getContext(), WithdrawActivity.class));
+                        break;
+                }
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
+
         prepareServiceList();
 //        fetchServices();
         return view;
@@ -91,6 +119,7 @@ public class HomeFragment extends Fragment {
 
         service = new ServiceModel("OTHERS",icons[3]);
         serviceList.add(service);
+
 
         adapter.notifyDataSetChanged();
 
