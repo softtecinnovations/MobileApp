@@ -44,7 +44,8 @@ public class EnterPin extends AppCompatActivity {
 
         backotp.setOnClickListener(view -> {
             PersonModel personModel = new PersonModel();
-            startActivity();
+            startActivity(new Intent(this,LoginActivity.class));
+            finish();
 //            mRetrofitAPI.createPost(personModel).enqueue(new Callback<PersonModel>() {
 //                @Override
 //                public void onResponse(Call<PersonModel> call, Response<PersonModel> response) {
@@ -73,12 +74,7 @@ public class EnterPin extends AppCompatActivity {
        keyboard.setInputConnection(ic);
         keyboard.setVisibility(View.VISIBLE);
 
+
     }
 
-    private void startActivity() {
-
-        startActivity(new Intent(this,OtpActivity.class));
-        onStop();
-        finish();
-    }
 }

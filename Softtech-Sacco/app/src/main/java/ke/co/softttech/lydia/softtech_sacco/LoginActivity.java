@@ -30,18 +30,15 @@ import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
     EditText phone;
-    TextView register,dialogmngs;
+    TextView register;
     ProgressBar progressBar;
     FloatingActionButton otpBtn;
 
-    View view,viewMsg;
+    View view;
     AlertDialog.Builder builder;
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
-
-    String phoneNumber;//= phone.getText().toString();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,28 +49,23 @@ public class LoginActivity extends AppCompatActivity {
         register = findViewById(R.id.regtxt);
         otpBtn = findViewById(R.id.floatingActionButton);
         view= LayoutInflater.from(this).inflate(R.layout.progressbar,null);
-         builder = new AlertDialog.Builder(this);
+        builder = new AlertDialog.Builder(this);
+
         builder.setView(view);
         builder.setCancelable(true);
-
         register.setOnClickListener(view -> {startActivity(new Intent(this,Registration.class));finish();});
-
         otpBtn.setOnClickListener(view -> {
-
             if (TextUtils.isEmpty(getPhoneNumber())){
                 phone.setError("Input your phone number");
             }else if (getPhoneNumber().length()!=10){
                 phone.setError("Invalid phone number");
             }else {
-
                 authenticateUser();
-
                 setRegister(register);
                 sharedPreferences = getSharedPreferences("MySharedPreferences", MODE_PRIVATE);
                 editor = sharedPreferences.edit();
                 editor.putString("phoneNumber",phone.getText().toString());
                 editor.apply();
-
             }
         });
     }
@@ -95,27 +87,24 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), OtpActivity.class));
                         finish();
                         phone.getText().clear();
-                    }else {
-                        builder.setView(null);
-//                        dialogmngs.setText("You are not registered in any sacco");
-//                        builder.setView(dialogmngs);
-                        builder.setMessage("You are not a registered member of any Sacco");
-                        builder.setNegativeButton("ok",(dialog,id) -> {closeContextMenu();});
-                        builder.create().show();
                     }
+                    builder.setView(null);
+                    builder.setMessage("You are not a registered member of any Sacco");
+                    builder.setNegativeButton("ok",(dialog,id) -> {closeContextMenu();});
+                    builder.create().show();
+
                 }
             }
 
 
             @Override
             public void onFailure(Call<List<members>> call, Throwable throwable) {
+                builder.create().isShowing();
                 builder.setView(null);
-//                dialogmngs.setText("You are not registered in any sacco");
-//                builder.setView(dialogmngs);
-                builder.setMessage("Unable to Login");
+                builder.setMessage("Unable to Login! Check your internet connection and try again.");
                 builder.setNegativeButton("ok",(dialog,id) -> {closeContextMenu();});
                 builder.create().show();
-                Toast.makeText(getApplicationContext(), "Something is wrong somewhere,ensure you are connected to the net", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(), "Something is wrong somewhere,ensure you are connected to the net", Toast.LENGTH_LONG).show();
             }
         });
         builder.create().show();
@@ -131,9 +120,6 @@ public class LoginActivity extends AppCompatActivity {
         register.setVisibility(View.GONE);
     }
 
-    public void setPhone(){
-
-    }
 
     @Override
     protected void onStart() {

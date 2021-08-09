@@ -64,7 +64,8 @@ public class Keyboard extends LinearLayout implements View.OnClickListener {
         buttonDelete.setOnClickListener(this);
         buttonEnter = (ImageButton) findViewById(R.id.button_enter);
         buttonEnter.setOnClickListener(view -> {Intent intent = new Intent(getContext(), MainActivity.class);
-        context.startActivity(intent);});
+        context.startActivity(intent);
+        context.stopService(new Intent(context,LoginActivity.class));});
 
         keyValues.put(R.id.button_1, "1");
         keyValues.put(R.id.button_2, "2");

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(view1 -> {startActivity(new Intent(this,LoginActivity.class));finish();});
 
-        backenterpin.setOnClickListener(view -> {startActivity(new Intent(this,EnterPin.class));
+        backenterpin.setOnClickListener(view -> {startActivity(new Intent(this,LoginActivity.class));
             finish();});
 //        Menu menu  = bottomNavigationView.getMenu();
 //        MenuItem menuItem = menu.getItem(0);
